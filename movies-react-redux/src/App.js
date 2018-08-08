@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import NavBar from './components/NavBar'
-import MovieList from "./containers/MovieList";
+import HomePageContainer from './containers/HomePageContainer'
 import {Provider} from 'react-redux';
 import movieReducer from './reducers/MovieReducer';
 import {createStore} from "redux";
@@ -11,7 +10,7 @@ export default class App extends Component {
         return (
             <div>
                 <Provider store={store}>
-                    <MovieList/>
+                    <HomePageContainer/>
                 </Provider>
             </div>
         )
