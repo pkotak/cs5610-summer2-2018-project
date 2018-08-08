@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import NavBar from './components/NavBar'
-import MovieList from "./containers/MovieList";
+import HomePageContainer from './containers/HomePageContainer'
 import {Provider} from 'react-redux';
 import movieReducer from './reducers/MovieReducer';
 import {createStore} from "redux";
@@ -10,12 +9,9 @@ export default class App extends Component {
     render() {
         return (
             <div>
-                <NavBar />
-                <div className='container-fluid'>
-                    <Provider store={store}>
-                        <MovieList/>
-                    </Provider>
-                </div>
+                <Provider store={store}>
+                    <HomePageContainer/>
+                </Provider>
             </div>
         )
     }

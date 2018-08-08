@@ -1,19 +1,28 @@
 import React from 'react';
-import MovieCard from '../components/MovieCard';
-import {connect} from 'react-redux';
-import * as actions from '../actions/movie';
+import NavBar from '../components/NavBar';
+import {MovieCard} from '../components/MovieCard';
+export default class MovieList extends React.Component {
+    constructor(props) {
+        super(props);
+    }
 
-const dispatcherToPropsMapper = (dispatch) => ({
-  findPopularMovies: () => actions.findPopularMovies(dispatch)
-})
+    componentDidMount() {
+        this.props.findPopularMovies();
+    }
 
-const stateToPropsMapper = (state) => ({
-    movies: state.movies
-})
-
-const MovieList = connect(stateToPropsMapper, dispatcherToPropsMapper)(MovieCard);
-
-export default MovieList;
-
-
-
+    render() {
+        return (
+            <div>
+                <NavBar searchMovie={this.props.searchMovie}/>
+                <div className='card-deck'>
+                    {this.props.movies.map((movie, index) => {
+                        let poster = 'https://image.tmdb.org/t/p/w500'+ movie.poster_path;
+                        return (
+                            <MovieCard key={index} image={poster} movie={movie}/>
+                        )
+                    })}
+                </div>
+            </div>
+        );
+    }
+}
