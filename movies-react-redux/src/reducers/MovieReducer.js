@@ -9,12 +9,11 @@ const movieReducer = (state = initialState, action) => {
            case constants.FIND_POPULAR_MOVIES:
                return {movies: action.movies.results}
 
-           case 'SEARCH_MOVIE':
-               return {
+           case constants.SEARCH_MOVIES:
+               return {movies: action.movies.results}
 
-               }
-               default:
-                   return state;
+           default:
+               return state;
        }
     };
 

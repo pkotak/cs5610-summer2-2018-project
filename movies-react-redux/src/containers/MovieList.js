@@ -4,7 +4,8 @@ import {connect} from 'react-redux';
 import * as actions from '../actions/movie';
 
 const dispatcherToPropsMapper = (dispatch) => ({
-  findPopularMovies: () => actions.findPopularMovies(dispatch)
+  findPopularMovies: () => actions.findPopularMovies(dispatch),
+    searchMovie: (searchText) => actions.searchMovie(dispatch, searchText)
 })
 
 const stateToPropsMapper = (state) => ({
