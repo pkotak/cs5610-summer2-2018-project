@@ -6,7 +6,6 @@ class UpcomingMovieCarousel extends React.Component {
 
     renderMovieCarouselItems(movies) {
         let moviesToRender = null;
-        let moviesChunkToRender = null;
 
         if (movies.length !== 0) {
 
@@ -40,10 +39,7 @@ class UpcomingMovieCarousel extends React.Component {
 
             moviesToRender = movie2DArray.map(
                 function (moviesChunk, index) {
-                    console.log(index, moviesChunk, poster2DArray[index]);
-
                     return <MovieCarouselItem key={index} movies={moviesChunk} images={poster2DArray[index]}/>
-
                 }, this);
 
         }
