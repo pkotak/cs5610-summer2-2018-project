@@ -1,5 +1,14 @@
 import * as constants from '../constants/index';
 
+export const findUpcomingMovies = dispatch => {
+    fetch(constants.UPCOMING_MOVIE_URL)
+        .then(response => response.json())
+        .then (upcomingMovies => dispatch({
+            type: constants.FIND_UPCOMING_MOVIES,
+            upcomingMovies: upcomingMovies
+        }))
+}
+
 export const findPopularMovies = dispatch => {
     fetch(constants.POPULAR_MOVIE_URL)
         .then(response => response.json())
