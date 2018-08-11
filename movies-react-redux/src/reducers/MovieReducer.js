@@ -1,7 +1,8 @@
 import * as constants from '../constants';
 
 let initialState = {
-    movies: []
+    movies: [],
+    movie: {}
 };
 
 const movieReducer = (state = initialState, action) => {
@@ -11,6 +12,9 @@ const movieReducer = (state = initialState, action) => {
 
            case constants.SEARCH_MOVIES:
                return {movies: action.movies.results}
+
+           case constants.FIND_MOVIE_DETAILS:
+               return {movie: action.movie}
 
            default:
                return state;

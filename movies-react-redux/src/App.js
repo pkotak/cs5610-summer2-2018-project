@@ -14,8 +14,8 @@ export default class App extends Component {
                 <Provider store={store}>
                     <Router>
                         <div>
-                            <Route path='/home' component={HomePageContainer}/>
-                            <Route path='/movie/detail' component={MovieDetailContainer}/>
+                            <Route exact path='/' component={HomePageContainer}/>
+                            <Route exact path='/movie/:movieId' component={MovieDetailContainer}/>
                         </div>
                     </Router>
                 </Provider>

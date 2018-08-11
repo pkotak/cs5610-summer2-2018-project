@@ -8,8 +8,7 @@ export const MovieCard = ({movie, image}) => {
                 <img className="card-img-top" src={image} alt="Card image cap"/>
                 <div className="card-body">
                     <h5 className="card-title">{movie.title}</h5>
-                    <p className="card-text">{movie.overview}</p>
-                    <a className="btn btn-primary"><Link to={`/movie/detail`}>View</Link></a>
+                    <a className="btn btn-outline-info"><Link to={`/movie/${movie.id}`}>View</Link></a>
                 </div>
             </div>
         </div>
