@@ -7,5 +7,7 @@ export const FIND_NOW_PLAYING_MOVIES = 'FIND_NOW_PLAYING_MOVIES';
 export const FIND_UPCOMING_MOVIES = 'FIND_UPCOMING_MOVIES';
 export const FIND_POPULAR_MOVIES = 'FIND_POPULAR_MOVIES';
 export const SEARCH_MOVIES = 'SEARCH_MOVIES';
+export const TOP_NEWS_URL = 'http://localhost:5000/api/news/top';
+export const FIND_TOP_NEWS = 'FIND_TOP_NEWS';
 export const FIND_MOVIE_DETAILS = 'FIND_MOVIE_DETAILS';
 export const TOGGLE_MODAL = 'TOGGLE_MODAL';
