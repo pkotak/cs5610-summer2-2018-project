@@ -12,7 +12,7 @@ class NowPlayingList extends React.Component {
     renderNowPlayingMovies(movies) {
         let moviesToRender = null;
 
-        if (movies.length !== 0) {
+        if (movies) {
 
             moviesToRender = movies.map(
                 function (movie, index) {

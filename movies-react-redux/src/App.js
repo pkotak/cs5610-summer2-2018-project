@@ -16,8 +16,6 @@ export default class App extends Component {
         return (
             <div>
                 <Provider store={store}>
-                   {/* <NewsPageContainer/>*/}
-                    <HomePageContainer/>
                     <Router>
                         <div>
                             <Route exact path='/' component={HomePageContainer}/>

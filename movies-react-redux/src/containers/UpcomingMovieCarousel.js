@@ -49,19 +49,26 @@ class UpcomingMovieCarousel extends React.Component {
 
     render() {
         let movies = this.props.upcomingMovies;
-        return (
-            <div>
-                <Carousel showArrows={true}
-                          showStatus={false}
-                          autoPlay={true}
-                          useKeyboardArrows={true}
-                          dynamicHeight={true}
-                          infiniteLoop={true}
-                          showThumbs={false}>
-                    {this.renderMovieCarouselItems(movies)}
-                </Carousel>
-            </div>
-        );
+        if(movies){
+            return (
+                <div>
+                    <Carousel showArrows={true}
+                              showStatus={false}
+                              autoPlay={true}
+                              useKeyboardArrows={true}
+                              dynamicHeight={true}
+                              infiniteLoop={true}
+                              showThumbs={false}>
+                        {this.renderMovieCarouselItems(movies)}
+                    </Carousel>
+                </div>
+            );
+        }
+        else{
+            return (
+              <h3>Loading</h3>
+            );
+        }
     }
 }
 
