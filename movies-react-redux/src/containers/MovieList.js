@@ -4,6 +4,8 @@ import blue from '@material-ui/core/colors/blue';
 import {MovieCard} from '../components/MovieCard';
 import UpcomingMovieCarousel from './UpcomingMovieCarousel';
 import NowPlayingList from "./NowPlayingList";
+import * as constants from '../constants';
+import {MovieCard} from '../components/MovieCard';
 
 export default class MovieList extends React.Component {
     constructor(props) {
@@ -17,6 +19,7 @@ export default class MovieList extends React.Component {
     }
 
     render() {
+      if(this.props.movies){
         return (
             <div>
                 <NavBar searchMovie={this.props.searchMovie}/>
@@ -38,7 +41,7 @@ export default class MovieList extends React.Component {
                 <div className='container-fluid row'>
                     <div className='card-deck col-9'>
                         {this.props.movies.map((movie, index) => {
-                            let poster = 'https://image.tmdb.org/t/p/w500' + movie.poster_path;
+                            let poster = constants.IMAGE_URL + movie.poster_path;
                             return (
                                 <MovieCard key={index} image={poster} movie={movie}/>
                             )
@@ -48,9 +51,14 @@ export default class MovieList extends React.Component {
                     <div className='col-3'>
                         <NowPlayingList nowPlayingMovies={this.props.nowPlayingMovies} />
                     </div>
-
                 </div>
-            </div>
+            );
+        }
+
+        return (
+          <div>
+              <h3>Loading</h3>
+          </div>
         );
     }
 }

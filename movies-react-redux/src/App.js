@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import HomePageContainer from './containers/HomePageContainer'
+import MovieDetailContainer from './containers/MovieDetailContainer';
 import {Provider} from 'react-redux';
 import movieReducer from './reducers/MovieReducer';
 import {createStore} from "redux";
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 const store = createStore(movieReducer);
 export default class App extends Component {
@@ -10,7 +12,12 @@ export default class App extends Component {
         return (
             <div>
                 <Provider store={store}>
-                    <HomePageContainer/>
+                    <Router>
+                        <div>
+                            <Route exact path='/' component={HomePageContainer}/>
+                            <Route exact path='/movie/:movieId' component={MovieDetailContainer}/>
+                        </div>
+                    </Router>
                 </Provider>
             </div>
         )
