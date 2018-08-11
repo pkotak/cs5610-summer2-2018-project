@@ -26,3 +26,38 @@ export const findMovieDetails = (dispatch, movieId) => {
             movie: movie
         }))
 }
+
+export const discoverMovies = (dispatch, sortBy, sortOrder) => {
+    fetch(constants.DISCOVER_MOVIE_URL + '?sort_by=' + sortBy + '&order=' + sortOrder)
+        .then(response => response.json())
+        .then(movies => dispatch({
+            type: constants.DISCOVER_MOVIES,
+            movies: movies
+        }))
+}
+
+export const toggleSortDropdown = (dispatch) => {
+    dispatch({
+        type: constants.TOGGLE_SORT_DROPDOWN
+    })
+}
+
+export const toggleOrderDropdown = (dispatch) => {
+    dispatch({
+        type: constants.TOGGLE_ORDER_DROPDOWN
+    })
+}
+
+export const setSortDropdownValue = (dispatch, value) => {
+    dispatch({
+        type: constants.SET_SORT_DROPDOWN_VALUE,
+        sortValue: value
+    })
+}
+
+export const setOrderDropdownValue = (dispatch, value) => {
+    dispatch({
+        type: constants.SET_ORDER_DROPDOWN_VALUE,
+        orderValue: value
+    })
+}

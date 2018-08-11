@@ -21,7 +21,7 @@ export default class MovieList extends React.Component {
                         {this.props.movies.map((movie, index) => {
                             let poster = constants.IMAGE_URL + movie.poster_path;
                             return (
-                                <MovieCard key={index} image={poster} movie={movie}/>
+                                <MovieCard key={index} image={poster} movie={movie} page='home'/>
                             )
                         })}
                     </div>
