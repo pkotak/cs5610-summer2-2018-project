@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 export const MovieCard = ({movie, image}) => {
     return (
@@ -7,8 +8,7 @@ export const MovieCard = ({movie, image}) => {
                 <img className="card-img-top" src={image} alt="Card image cap"/>
                 <div className="card-body">
                     <h5 className="card-title">{movie.title}</h5>
-                    <p className="card-text">{movie.overview}</p>
-                    <a href="#" className="btn btn-primary">View</a>
+                    <Link to={`/movie/${movie.id}`} className="btn btn-outline-info">View</Link>
                 </div>
             </div>
         </div>
