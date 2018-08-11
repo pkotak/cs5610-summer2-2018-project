@@ -7,6 +7,7 @@ import movieReducer from './reducers/MovieReducer';
 import newsReducer from './reducers/NewsReducer'
 import {createStore} from "redux";
 import {BrowserRouter as Router, Route} from 'react-router-dom';
+import DiscoverMoviesContainer from "./containers/DiscoverMoviesContainer";
 
 const store = createStore(movieReducer);
 // const store = createStore(newsReducer);
@@ -20,6 +21,7 @@ export default class App extends Component {
                     <Router>
                         <div>
                             <Route exact path='/' component={HomePageContainer}/>
+                            <Route exact path='/discover' component={DiscoverMoviesContainer}/>
                             <Route exact path='/movie/:movieId' component={MovieDetailContainer}/>
                         </div>
                     </Router>

@@ -25,7 +25,6 @@ export default class MovieList extends React.Component {
 
                     <UpcomingMovieCarousel upcomingMovies={this.props.upcomingMovies}/>
 
-
                     <div className='container-fluid row'>
                         <div className='col-9'>
                             <h4 className='m-2 p-2 float-left text-white '

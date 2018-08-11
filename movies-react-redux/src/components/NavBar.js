@@ -7,6 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import FormControl from '@material-ui/core/FormControl';
 import purple from '@material-ui/core/colors/purple';
+import {Link} from 'react-router-dom';
 
 const styles = {
     root: {
@@ -38,6 +39,12 @@ function ButtonAppBar(props) {
                     <Typography variant="title" color="inherit" className={classes.flex}>
                         Movies
                     </Typography>
+                    <Link to={'/'}><Button color="inherit">
+                        Home
+                    </Button></Link>
+                    <Link to={'/discover'}><Button color="inherit">
+                       Discover
+                    </Button></Link>
                     <FormControl className={classes.margin}>
                         <input
                             className='form-control'
