@@ -7,37 +7,37 @@ import '../styles/MovieDetailStyle.css';
 import {YoutubeWidget} from '../components/YoutubeWidget';
 
 class MovieDetail extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props);
     }
 
-    componentDidMount(){
+    componentDidMount() {
         this.props.findMovieDetails(this.props.match.params.movieId);
 
     }
 
     getReleaseYear(releaseDate) {
-        if(releaseDate)
+        if (releaseDate)
             return releaseDate.split('-')[0];
     }
 
     renderCastCards(actor, index) {
         return (
             <div className='col-3 d-flex align-items-stretch'>
-              <div key={index} className='card'>
-                  <img className='card-img-top' src={constants.IMAGE_URL + actor.profile_path} alt='Card image cap'/>
-                  <div className='card-body'>
-                      <h9 className='headers'>{actor.name}</h9>
-                      <br/>
-                      <p>{actor.character}</p>
-                  </div>
-              </div>
+                <div key={index} className='card'>
+                    <img className='card-img-top' src={constants.IMAGE_URL + actor.profile_path} alt='Card image cap'/>
+                    <div className='card-body'>
+                        <h9 className='headers'>{actor.name}</h9>
+                        <br/>
+                        <p>{actor.character}</p>
+                    </div>
+                </div>
             </div>
         );
     }
 
-    render(){
-        if(this.props.movie && this.props.movie.videos) {
+    render() {
+        if (this.props.movie && this.props.movie.videos) {
             let youtubeUrl = this.props.movie.videos.results[0].key;
             return (
                 <div>
@@ -85,23 +85,23 @@ class MovieDetail extends React.Component {
                                     </div>
                                 </div>
                                 <div className='row mt-5'>
-                                <div className='col-6'>
-                                    <div className='headers'>
-                                        Original Language
+                                    <div className='col-6'>
+                                        <div className='headers'>
+                                            Original Language
+                                        </div>
+                                        <div>
+                                            {this.props.movie.original_language}
+                                        </div>
                                     </div>
-                                    <div>
-                                        {this.props.movie.original_language}
+                                    <div className='col-6'>
+                                        <div className='headers'>
+                                            HomePage
+                                        </div>
+                                        <div>
+                                            <a href={this.props.movie.homepage}>{this.props.movie.homepage}</a>
+                                        </div>
                                     </div>
                                 </div>
-                                <div className='col-6'>
-                                    <div className='headers'>
-                                        HomePage
-                                    </div>
-                                    <div>
-                                        <a href={this.props.movie.homepage}>{this.props.movie.homepage}</a>
-                                    </div>
-                                </div>
-                            </div>
                             </div>
                         </div>
                     </div>
@@ -127,10 +127,10 @@ class MovieDetail extends React.Component {
             );
         }
 
-        return(
-          <div>
-              <h3>Loading</h3>
-          </div>
+        return (
+            <div>
+                <h3>Loading</h3>
+            </div>
         );
 
     }
@@ -145,6 +145,6 @@ const stateToPropsMapper = (state) => ({
     movie: state.movie
 })
 
-const MovieDetailsContainer  = connect(stateToPropsMapper, dispatcherToPropsMapper)(MovieDetail);
+const MovieDetailsContainer = connect(stateToPropsMapper, dispatcherToPropsMapper)(MovieDetail);
 
 export default MovieDetailsContainer;
