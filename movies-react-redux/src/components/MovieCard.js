@@ -25,6 +25,8 @@ export const MovieCard = ({movie, image, page}) => {
                     <img className="card-img-top" src={image} alt="Card image cap"/>
                     <div className="card-body">
                         <h5 className="card-title">{movie.title}</h5>
+                    </div>
+                    <div className="card-footer text-muted">
                         <a className="btn btn-outline-info"><Link to={`/movie/${movie.id}`}>View</Link></a>
                     </div>
                 </div>
