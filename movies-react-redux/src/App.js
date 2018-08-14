@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Route} from 'react-router-dom';
 import {createStore} from "redux";
 import {Provider} from 'react-redux';
 import Reducer from './reducers/Reducer';
+import rootReducer from './reducers/';
 import newsReducer from './reducers/NewsReducer'
 import HomePageContainer from './containers/HomePageContainer'
 import NewsPageContainer from './containers/NewsPageContainer'
@@ -12,8 +13,9 @@ import LoginContainer from "./containers/LoginContainer";
 import ProfileContainer from "./containers/ProfileContainer";
 import RegistrationContainer from "./containers/RegistrationContainer";
 
-const store = createStore(Reducer);
-// const store = createStore(newsReducer);
+//const store = createStore(Reducer);
+const store = createStore(rootReducer );
+
 export default class App extends Component {
     render() {
         return (

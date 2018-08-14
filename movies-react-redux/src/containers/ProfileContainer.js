@@ -9,14 +9,14 @@ const dispatchToPropsMapper = dispatch => ({
 });
 
 const stateToPropsMapper = state => ({
-    username: state.username,
-    firstName: state.firstName,
-    lastName: state.lastName,
-    email: state.email,
-    dob: state.dob,
-    phone: state.phone,
-    city: state.city,
-    description: state.description
+    username: state.userReducer.username,
+    firstName: state.userReducer.firstName,
+    lastName: state.userReducer.lastName,
+    email: state.userReducer.email,
+    dob: state.userReducer.dob,
+    phone: state.userReducer.phone,
+    city: state.userReducer.city,
+    description: state.userReducer.description
 });
 
 const ProfileContainer = connect(stateToPropsMapper, dispatchToPropsMapper)(Profile);

@@ -11,7 +11,7 @@ const dispatchToPropsMapper = dispatch => ({
 });
 
 const stateToPropsMapper = state => ({
-    userType: state.userType
+    userType: state.userReducer.userType
 });
 
 const RegistrationContainer = connect(stateToPropsMapper, dispatchToPropsMapper)(Registration);

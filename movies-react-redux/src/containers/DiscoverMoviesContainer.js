@@ -95,11 +95,11 @@ const dispatcherToPropsMapper = (dispatch) => ({
 })
 
 const stateToPropsMapper = (state) => ({
-    movies: state.movies,
-    sortToggleOpen: state.sortToggleOpen,
-    orderToggleOpen: state.orderToggleOpen,
-    sortValue: state.sortValue,
-    orderValue: state.orderValue
+    movies: state.movieReducer.movies,
+    sortToggleOpen: state.movieReducer.sortToggleOpen,
+    orderToggleOpen: state.movieReducer.orderToggleOpen,
+    sortValue: state.movieReducer.sortValue,
+    orderValue: state.movieReducer.orderValue
 })
 
 const DiscoverMoviesContainer = connect(stateToPropsMapper, dispatcherToPropsMapper)(DiscoverMovies);
