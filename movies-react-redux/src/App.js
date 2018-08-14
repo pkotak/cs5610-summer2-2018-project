@@ -30,6 +30,7 @@ export default class App extends Component {
                             <Route path='/profile' component={ProfileContainer}/>
                             <Route exact path='/discover' component={DiscoverMoviesContainer}/>
                             <Route exact path='/movie/:movieId' component={MovieDetailContainer}/>
+                            <Route exact path='/news' component={NewsPageContainer}/>
                         </div>
                     </Router>
                 </Provider>

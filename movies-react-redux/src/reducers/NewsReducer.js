@@ -1,16 +1,13 @@
 import * as constants from '../constants';
 
-let initialState = {
+let newsInitialState = {
     news: []
 };
 
-const newsReducer = (state = initialState, action) => {
+const newsReducer = (state = newsInitialState, action) => {
     switch (action.type) {
         case constants.FIND_TOP_NEWS:
             return {news: action.news.results}
-
-        // case constants.SEARCH_MOVIES:
-        //     return {movies: action.movies.results}
 
         default:
             return state;

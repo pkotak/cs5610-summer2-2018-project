@@ -8,12 +8,3 @@ export const findTopNews = dispatch => {
             news: news
         }))
 }
-
-// export const searchMovie = (dispatch, searchText) => {
-//     fetch(constants.MOVIE_SEARCH_URL + '/' + searchText)
-//         .then(response => response.json())
-//         .then(movies => dispatch({
-//             type: constants.SEARCH_MOVIES,
-//             movies: movies
-//         }))
-// }

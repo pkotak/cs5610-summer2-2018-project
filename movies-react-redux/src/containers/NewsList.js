@@ -12,11 +12,10 @@ export default class NewsList extends React.Component {
 
     render() {
         return (
-            <div>
-                {/*<NavBar searchMovie={this.props.searchMovie}/>*/}
-                <div className='card-deck'>
+            <div className="container-fluid">
+                <h2>Now Trending</h2>
+                <div className='list-group'>
                     {this.props.news.map((news, index) => {
-                        // let poster = 'https://image.tmdb.org/t/p/w500'+ news.poster_path;
                         return (
                             <NewsListItem key={index} news={news}/>
                         )

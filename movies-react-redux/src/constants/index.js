@@ -12,8 +12,6 @@ export const FIND_NOW_PLAYING_MOVIES = 'FIND_NOW_PLAYING_MOVIES';
 export const FIND_UPCOMING_MOVIES = 'FIND_UPCOMING_MOVIES';
 export const FIND_POPULAR_MOVIES = 'FIND_POPULAR_MOVIES';
 export const SEARCH_MOVIES = 'SEARCH_MOVIES';
-export const TOP_NEWS_URL = 'http://localhost:5000/api/news/top';
-export const FIND_TOP_NEWS = 'FIND_TOP_NEWS';
 export const FIND_MOVIE_DETAILS = 'FIND_MOVIE_DETAILS';
 
 //Discover constants
@@ -22,6 +20,11 @@ export const TOGGLE_SORT_DROPDOWN = 'TOGGLE_SORT_DROPDOWN';
 export const SET_SORT_DROPDOWN_VALUE = 'SET_SORT_DROPDOWN_VALUE';
 export const TOGGLE_ORDER_DROPDOWN = 'TOGGLE_ORDER_DROPDOWN';
 export const SET_ORDER_DROPDOWN_VALUE = 'SET_ORDER_DROPDOWN_VALUE';
+
+//News constants
+export const TOP_NEWS_URL = 'http://localhost:5000/api/news/top';
+export const FIND_TOP_NEWS = 'FIND_TOP_NEWS';
+
 
 //Login constants
 export const TEXT_CHANGED = 'TEXT_CHANGED';

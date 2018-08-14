@@ -8,7 +8,7 @@ const dispatcherToPropsMapper = (dispatch) => ({
 })
 
 const stateToPropsMapper = (state) => ({
-    news: state.news
+    news: state.newsReducer.news
 })
 
 const NewsPageContainer = connect(stateToPropsMapper, dispatcherToPropsMapper)(NewsList);

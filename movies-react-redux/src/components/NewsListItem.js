@@ -6,17 +6,21 @@ export const NewsListItem = ({news}) => {
     if (image[0]) {
         imageSrc = image[0].url;
     } else {
-        imageSrc = 'https://picsum.photos/300/200';
+        imageSrc = 'https://lajoyalink.com/wp-content/uploads/2018/03/Movie.jpg';
     }
     console.log('image: ' + image[0]);
+    let date = new Date(news.published_date).toLocaleDateString();
     return (
-        <div className='col-3 mt-2'>
-            <div className='card h-75'>
-                <img className="card-img-top" src={imageSrc} alt="Card image cap"/>
-                <div className="card-body">
-                    <h5 className="card-title">{news.title}</h5>
-                    <p className="card-text">{news.abstract}</p>
-                    <a href="#" className="btn btn-primary">View</a>
+        <div className='list-group-item'>
+            <div className="row">
+                <div className="col-3">
+                    <img className="img-responsive" src={imageSrc} width="300" height="200"/>
+                </div>
+                <div className="col-9">
+                    <a href={news.url} target="_blank"><h3>{news.title}</h3></a>
+                    <p>{news.abstract}</p>
+                    <h6>{date}</h6>
+                    <p>{news.byline}</p>
                 </div>
             </div>
         </div>
