@@ -1,16 +1,22 @@
 import React, { Component } from 'react'
+import {Provider} from 'react-redux';
+import Reducer from './reducers/Reducer';
+import rootReducer from './reducers/';
+import newsReducer from './reducers/NewsReducer'
 import HomePageContainer from './containers/HomePageContainer'
 import NewsPageContainer from './containers/NewsPageContainer'
 import MovieDetailContainer from './containers/MovieDetailContainer';
-import {Provider} from 'react-redux';
 import movieReducer from './reducers/MovieReducer';
-import newsReducer from './reducers/NewsReducer'
 import {combineReducers, createStore} from "redux";
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import DiscoverMoviesContainer from "./containers/DiscoverMoviesContainer";
+import LoginContainer from "./containers/LoginContainer";
+import ProfileContainer from "./containers/ProfileContainer";
+import RegistrationContainer from "./containers/RegistrationContainer";
 
-const store = createStore(movieReducer);
-// const store = createStore(newsReducer);
+//const store = createStore(Reducer);
+const store = createStore(rootReducer );
+
 export default class App extends Component {
     render() {
         return (
@@ -19,6 +25,9 @@ export default class App extends Component {
                     <Router>
                         <div>
                             <Route exact path='/' component={HomePageContainer}/>
+                            <Route path='/login' component={LoginContainer}/>
+                            <Route path='/register' component={RegistrationContainer}/>
+                            <Route path='/profile' component={ProfileContainer}/>
                             <Route exact path='/discover' component={DiscoverMoviesContainer}/>
                             <Route exact path='/movie/:movieId' component={MovieDetailContainer}/>
                         </div>

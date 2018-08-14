@@ -145,7 +145,7 @@ const dispatcherToPropsMapper = (dispatch) => ({
 })
 
 const stateToPropsMapper = (state) => ({
-    movie: state.movie
+    movie: state.movieReducer.movie
 })
 
 const MovieDetailsContainer = connect(stateToPropsMapper, dispatcherToPropsMapper)(MovieDetail);

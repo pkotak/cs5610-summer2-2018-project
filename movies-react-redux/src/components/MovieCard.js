@@ -27,11 +27,10 @@ export const MovieCard = ({movie, image, page}) => {
                         <h5 className="card-title">{movie.title}</h5>
                     </div>
                     <div className="card-footer text-muted">
-                        <a className="btn btn-outline-info"><Link to={`/movie/${movie.id}`}>View</Link></a>
+                        <Link className='btn btn-outline-info' to={`/movie/${movie.id}`}>View</Link>
                     </div>
                 </div>
             </div>
         )
     }
-
 }

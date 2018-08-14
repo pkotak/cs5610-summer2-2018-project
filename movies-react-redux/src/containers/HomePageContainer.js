@@ -11,10 +11,10 @@ const dispatcherToPropsMapper = (dispatch) => ({
 });
 
 const stateToPropsMapper = (state) => ({
-    nowPlayingMovies: state.nowPlayingMovies,
-    upcomingMovies: state.upcomingMovies,
-    movies: state.movies
-
+    nowPlayingMovies: state.movieReducer.nowPlayingMovies,
+    upcomingMovies: state.movieReducer.upcomingMovies,
+    movies: state.movieReducer.movies,
+    type: state.movieReducer.userType
 });
 
 const HomePageContainer = connect(stateToPropsMapper, dispatcherToPropsMapper)(MovieList);
