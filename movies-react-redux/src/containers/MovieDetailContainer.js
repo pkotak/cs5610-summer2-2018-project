@@ -5,6 +5,7 @@ import * as constants from '../constants/index';
 import NavBar from '../components/NavBar';
 import '../styles/MovieDetailStyle.css';
 import {YoutubeWidget} from '../components/YoutubeWidget';
+import UpcomingMovieCarousel from "./UpcomingMovieCarousel";
 
 class MovieDetail extends React.Component {
     constructor(props) {
@@ -37,7 +38,7 @@ class MovieDetail extends React.Component {
     }
 
     render() {
-        if (this.props.movie && this.props.movie.videos) {
+        if (this.props.movie && this.props.movie.videos && this.props.movie.similar) {
             let youtubeUrl = this.props.movie.videos.results[0].key;
             return (
                 <div>
@@ -122,6 +123,8 @@ class MovieDetail extends React.Component {
                     </div>
                     <div className='container-fluid'>
                         <h3>Recommendations</h3>
+                        <UpcomingMovieCarousel upcomingMovies={this.props.movie.similar.results}/>
+
                     </div>
                 </div>
             );

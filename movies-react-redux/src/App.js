@@ -5,7 +5,7 @@ import MovieDetailContainer from './containers/MovieDetailContainer';
 import {Provider} from 'react-redux';
 import movieReducer from './reducers/MovieReducer';
 import newsReducer from './reducers/NewsReducer'
-import {createStore} from "redux";
+import {combineReducers, createStore} from "redux";
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import DiscoverMoviesContainer from "./containers/DiscoverMoviesContainer";
 
