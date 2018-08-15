@@ -13,8 +13,9 @@ import DiscoverMoviesContainer from "./containers/DiscoverMoviesContainer";
 import LoginContainer from "./containers/LoginContainer";
 import ProfileContainer from "./containers/ProfileContainer";
 import RegistrationContainer from "./containers/RegistrationContainer";
+import PopularNewsContainer from "./containers/PopularNewsContainer";
+import ExternalReviewsContainer from "./containers/ExternalReviewsContainer";
 
-//const store = createStore(Reducer);
 const store = createStore(rootReducer );
 
 export default class App extends Component {
@@ -30,7 +31,9 @@ export default class App extends Component {
                             <Route path='/profile' component={ProfileContainer}/>
                             <Route exact path='/discover' component={DiscoverMoviesContainer}/>
                             <Route exact path='/movie/:movieId' component={MovieDetailContainer}/>
-                            <Route exact path='/news' component={NewsPageContainer}/>
+                            <Route exact path='/news/top' component={NewsPageContainer}/>
+                            <Route exact path='/news/popular' component={PopularNewsContainer}/>
+                            <Route exact path='/news/reviews' component={ExternalReviewsContainer}/>
                         </div>
                     </Router>
                 </Provider>

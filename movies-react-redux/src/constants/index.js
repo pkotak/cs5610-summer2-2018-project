@@ -23,7 +23,11 @@ export const SET_ORDER_DROPDOWN_VALUE = 'SET_ORDER_DROPDOWN_VALUE';
 
 //News constants
 export const TOP_NEWS_URL = 'http://localhost:5000/api/news/top';
+export const POPULAR_NEWS_URL = 'http://localhost:5000/api/news/popular';
+export const EXTERNAL_REVIEWS_URL = 'http://localhost:5000/api/news/reviews';
 export const FIND_TOP_NEWS = 'FIND_TOP_NEWS';
+export const FIND_POPULAR_NEWS = 'FIND_POPULAR_NEWS';
+export const FIND_EXTERNAL_REVIEWS = 'FIND_EXTERNAL_REVIEWS';
 
 
 //Login constants

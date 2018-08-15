@@ -52,7 +52,21 @@ function ButtonAppBar(props, {type, logout, loggedIn}) {
                             Discover
                         </Button>
                     </Link>
-
+                    <Link to={'/news/top'}>
+                        <Button className="text-white">
+                            News
+                        </Button>
+                    </Link>
+                    <Link to={'/news/popular'}>
+                        <Button className="text-white">
+                            Trending
+                        </Button>
+                    </Link>
+                    <Link to={'/news/reviews'}>
+                        <Button className="text-white">
+                            External Reviews
+                        </Button>
+                    </Link>
                     <div hidden={ loggedIn}>
                         <Link style={{display: 'block', height: '100%'}}
                               className="navbar-nav" to="/login">
