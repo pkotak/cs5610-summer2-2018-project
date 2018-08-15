@@ -15,6 +15,8 @@ export const SEARCH_MOVIES = 'SEARCH_MOVIES';
 export const TOP_NEWS_URL = 'http://localhost:5000/api/news/top';
 export const FIND_TOP_NEWS = 'FIND_TOP_NEWS';
 export const FIND_MOVIE_DETAILS = 'FIND_MOVIE_DETAILS';
+export const FAVORITE_MOVIE = 'FAVORITE_MOVIE';
+export const WATCHLIST_MOVIE = 'WATCHLIST_MOVIE';
 
 //Discover constants
 export const DISCOVER_MOVIES = 'DISCOVER_MOVIES';

@@ -54,6 +54,30 @@ export const discoverMovies = (dispatch, sortBy, sortOrder) => {
         }))
 }
 
+export const favoriteMovie = (dispatch, movieId) => {
+    fetch(constants.BASE_URL + 'movie/' + movieId + '/favorite', {
+        method: 'post',
+        credentials: 'include'
+    })
+        .then(response => response.json())
+        .then(favorite => dispatch({
+            type: constants.FAVORITE_MOVIE,
+            favorite: favorite
+        }))
+}
+
+export const watchListMovie = (dispatch, movieId) => {
+    fetch(constants.BASE_URL + 'movie/' + movieId + '/watchlist', {
+        method: 'post',
+        credentials: 'include'
+    })
+        .then(response => response.json())
+        .then(watchlist => dispatch({
+            type: constants.WATCHLIST_MOVIE,
+            watchlist: watchlist
+        }))
+}
+
 export const toggleSortDropdown = (dispatch) => {
     dispatch({
         type: constants.TOGGLE_SORT_DROPDOWN

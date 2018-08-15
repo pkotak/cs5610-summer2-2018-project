@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-export const MovieCard = ({movie, image, page}) => {
+export const MovieCard = ({movie, image, page, favouriteMovie, watchListMovie, watchlist, favorite}) => {
     if(page === 'discover'){
         return (
             <div className='col-3 mt-2'>
@@ -9,8 +9,8 @@ export const MovieCard = ({movie, image, page}) => {
                     <img className="card-img-top" src={image} alt="Card image cap"/>
                     <div className="card-body">
                         <h5 className="card-title">{movie.title}</h5>
-                        <i className='fa fa-heart'/>
-                        <i className='fa fa-bookmark ml-2'/>
+                        <i className='fa fa-heart' onClick={() => {favouriteMovie(movie.id); alert(!favorite.favorite)}}/>
+                        <i className='fa fa-bookmark ml-2' onClick={() => {watchListMovie(movie.id); alert(!watchlist.watchlist)}}/>
                     </div>
                     <div className="card-footer text-muted">
                         Popularity: {movie.vote_average}

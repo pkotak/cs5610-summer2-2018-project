@@ -10,14 +10,12 @@ let movieInitialState = {
     orderToggleOpen: false,
     sortValue: '',
     orderValue: '',
+    favorite: {favorite: null},
+    watchlist: {watchlist: null}
 };
 
 const movieReducer = (state = movieInitialState , action) => {
-    let newState;
-
     switch (action.type) {
-
-
         //Movies
         case constants.FIND_NOW_PLAYING_MOVIES:
             return {
@@ -39,7 +37,9 @@ const movieReducer = (state = movieInitialState , action) => {
             return {
                 movies: action.movies.results,
                 sortValue: state.sortValue,
-                orderValue: state.orderValue
+                orderValue: state.orderValue,
+                favorite: state.favorite,
+                watchlist: state.watchlist
             }
 
         case constants.TOGGLE_SORT_DROPDOWN:
@@ -48,7 +48,9 @@ const movieReducer = (state = movieInitialState , action) => {
                 sortToggleOpen: !state.sortToggleOpen,
                 orderToggleOpen: state.orderToggleOpen,
                 sortValue: state.sortValue,
-                orderValue: state.orderValue
+                orderValue: state.orderValue,
+                favorite: state.favorite,
+                watchlist: state.watchlist
             }
 
         case constants.TOGGLE_ORDER_DROPDOWN:
@@ -57,7 +59,9 @@ const movieReducer = (state = movieInitialState , action) => {
                 sortToggleOpen: state.sortToggleOpen,
                 orderToggleOpen: !state.orderToggleOpen,
                 sortValue: state.sortValue,
-                orderValue: state.orderValue
+                orderValue: state.orderValue,
+                favorite: state.favorite,
+                watchlist: state.watchlist
             }
 
         case constants.SET_SORT_DROPDOWN_VALUE:
@@ -66,7 +70,9 @@ const movieReducer = (state = movieInitialState , action) => {
                 sortToggleOpen: state.sortToggleOpen,
                 orderToggleOpen: state.orderToggleOpen,
                 sortValue: action.sortValue,
-                orderValue: state.orderValue
+                orderValue: state.orderValue,
+                favorite: state.favorite,
+                watchlist: state.watchlist
             }
 
         case constants.SET_ORDER_DROPDOWN_VALUE:
@@ -75,7 +81,9 @@ const movieReducer = (state = movieInitialState , action) => {
                 sortToggleOpen: state.sortToggleOpen,
                 orderToggleOpen: state.orderToggleOpen,
                 sortValue: state.sortValue,
-                orderValue: action.orderValue
+                orderValue: action.orderValue,
+                favorite: state.favorite,
+                watchlist: state.watchlist
             }
 
         case constants.FIND_POPULAR_MOVIES:
@@ -102,6 +110,19 @@ const movieReducer = (state = movieInitialState , action) => {
                 movie: action.movie
             }
 
+        case constants.FAVORITE_MOVIE:
+            return {
+                movies: state.movies,
+                favorite: action.favorite,
+                watchlist: state.watchlist
+            }
+
+        case constants.WATCHLIST_MOVIE:
+            return {
+                movies: state.movies,
+                watchlist: action.watchlist,
+                favorite: state.favorite,
+            }
         default:
             return state;
     }

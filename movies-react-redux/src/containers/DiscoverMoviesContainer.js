@@ -69,7 +69,14 @@ class DiscoverMovies extends React.Component {
                         {this.props.movies.map((movie, index) => {
                             let poster = constants.IMAGE_URL + movie.poster_path;
                             return (
-                                <MovieCard key={index} image={poster} movie={movie} page='discover'/>
+                                <MovieCard key={index}
+                                           image={poster}
+                                           movie={movie}
+                                           favorite={this.props.favorite}
+                                           watchlist={this.props.watchlist}
+                                           watchListMovie={this.props.watchListMovie}
+                                           favouriteMovie={this.props.favoriteMovie}
+                                           page='discover'/>
                             )
                         })}
                     </div>
@@ -88,6 +95,8 @@ class DiscoverMovies extends React.Component {
 const dispatcherToPropsMapper = (dispatch) => ({
     discoverMovies: (sortBy, sortOrder) => actions.discoverMovies(dispatch, sortBy, sortOrder),
     searchMovie: (searchText) => actions.searchMovie(dispatch, searchText),
+    favoriteMovie: (movieId) => actions.favoriteMovie(dispatch, movieId),
+    watchListMovie: (movieId) => actions.watchListMovie(dispatch, movieId),
     toggleSortDropdown: () => actions.toggleSortDropdown(dispatch),
     toggleOrderDropdown: () => actions.toggleOrderDropdown(dispatch),
     setSortDropdownValue: (value) => actions.setSortDropdownValue(dispatch, value),
@@ -99,7 +108,9 @@ const stateToPropsMapper = (state) => ({
     sortToggleOpen: state.movieReducer.sortToggleOpen,
     orderToggleOpen: state.movieReducer.orderToggleOpen,
     sortValue: state.movieReducer.sortValue,
-    orderValue: state.movieReducer.orderValue
+    orderValue: state.movieReducer.orderValue,
+    favorite: state.movieReducer.favorite,
+    watchlist: state.movieReducer.watchlist,
 })
 
 const DiscoverMoviesContainer = connect(stateToPropsMapper, dispatcherToPropsMapper)(DiscoverMovies);
