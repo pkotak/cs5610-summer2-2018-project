@@ -24,7 +24,7 @@ class MovieDetail extends React.Component {
 
     renderCastCards(actor, index) {
         return (
-            <div className='col-3 d-flex align-items-stretch'>
+            <div className='col-lg-3 col-md-4 col-sm-6 d-flex align-items-stretch'>
                 <div key={index} className='card'>
                     <img className='card-img-top' src={constants.IMAGE_URL + actor.profile_path} alt='Card image cap'/>
                     <div className='card-body'>
@@ -44,10 +44,10 @@ class MovieDetail extends React.Component {
                 <div>
                     <NavBar searchMovie={this.props.searchMovie}/>
                     <div className='div-background row mt-5'>
-                        <div className='img-content col-3 ml-5'>
+                        <div className='img-content col-lg-3 col-md-4 col-sm-6 ml-5'>
                             <img src={constants.IMAGE_URL + '/' + this.props.movie.poster_path}/>
                         </div>
-                        <div className='col-8 ml-2'>
+                        <div className='col-lg-8 col-md-10 col-sm-12 ml-2'>
                             <div className='movie-title'>
                                 {this.props.movie.original_title} ({this.getReleaseYear(this.props.movie.release_date)})
                             </div>
@@ -108,7 +108,7 @@ class MovieDetail extends React.Component {
                     </div>
                     <div className='container-fluid mt-2 ml-3'>
                         <h3>Top Cast</h3>
-                        <div className='card-deck flex-row flex-nowrap'>
+                        <div className='card-deck'>
                             {this.props.movie.credits.cast.slice(0, 4).map((actor, index) =>
                                 this.renderCastCards(actor, index)
                             )}

@@ -1,13 +1,10 @@
 import React, { Component } from 'react'
 import {Provider} from 'react-redux';
-import Reducer from './reducers/Reducer';
 import rootReducer from './reducers/';
-import newsReducer from './reducers/NewsReducer'
 import HomePageContainer from './containers/HomePageContainer'
 import NewsPageContainer from './containers/NewsPageContainer'
 import MovieDetailContainer from './containers/MovieDetailContainer';
-import movieReducer from './reducers/MovieReducer';
-import {combineReducers, createStore} from "redux";
+import {createStore} from "redux";
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import DiscoverMoviesContainer from "./containers/DiscoverMoviesContainer";
 import LoginContainer from "./containers/LoginContainer";

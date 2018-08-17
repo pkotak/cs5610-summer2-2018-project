@@ -5,39 +5,26 @@ class NowPlayingList extends React.Component {
 
     constructor(){
         super();
-        this.viewMovie = this.viewMovie.bind(this);
-        this.addToWatchList = this.addToWatchList.bind(this);
     }
 
     renderNowPlayingMovies(movies) {
         let moviesToRender = null;
 
         if (movies) {
-
-            moviesToRender = movies.map(
-                function (movie, index) {
-                    return <NowPlayingListItem key={index}
-                                               movie={movie}
-                                               viewMovie={this.viewMovie}
-                                               addToWatchList={this.addToWatchList}/>
-                }, this);
+            moviesToRender = movies.map((movie, index) =>
+                    <NowPlayingListItem key={index}
+                                        movie={movie}/>);
         }
         return (moviesToRender);
-    }
-
-    viewMovie(movie) {
-        let url = "https://www.themoviedb.org/movie/" + movie.id;
-        window.location.href = url;
-    }
-
-    addToWatchList(movie){
-        console.log("Adding", movie.title, "to Watchlist!");
     }
 
     render() {
         let movies = this.props.nowPlayingMovies;
         return(
             <div className='list-group'>
+                <div className='list-group-item list-group-item-action bg-dark row'>
+                    <h4>Now Playing</h4>
+                </div>
                 {this.renderNowPlayingMovies(movies)}
             </div>
         );
