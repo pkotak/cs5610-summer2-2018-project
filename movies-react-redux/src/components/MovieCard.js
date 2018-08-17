@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 export const MovieCard = ({movie, image, page, favouriteMovie, watchListMovie, watchlist, favorite}) => {
     if(page === 'discover'){
         return (
-            <div className='col-3 mt-2'>
+            <div className='col-lg-3 col-md-4 col-sm-6 mt-2'>
                 <div className='card h-100'>
                     <img className="card-img-top" src={image} alt="Card image cap"/>
                     <div className="card-body">
@@ -20,7 +20,7 @@ export const MovieCard = ({movie, image, page, favouriteMovie, watchListMovie, w
         )
     } else {
         return (
-            <div className='col-3 mt-2'>
+            <div className='col-lg-3 col-md-4 col-sm-6 mt-2'>
                 <div className='card h-100'>
                     <img className="card-img-top" src={image} alt="Card image cap"/>
                     <div className="card-body">
