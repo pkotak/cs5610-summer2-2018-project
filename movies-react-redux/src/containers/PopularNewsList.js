@@ -1,35 +1,34 @@
 import React from 'react';
 import NavBar from '../components/NavBar';
-import {NewsListItem} from '../components/NewsListItem';
-export default class NewsList extends React.Component {
+import {PopularNewsListItem} from '../components/PopularNewsListItem';
+export default class PopularNewsList extends React.Component {
     constructor(props) {
         super(props);
     }
 
     componentDidMount() {
-        this.props.findTopNews();
+        this.props.findPopularNews();
     }
 
     render() {
-        if (this.props.news) {
+        if (this.props.popularNews) {
             return (
                 <div>
                     <NavBar searchMovie={this.props.searchMovie}/>
                     <div className="container-fluid">
-                        {/*<h2>Top News</h2>*/}
+                        <h2>Now Trending</h2>
                         <div className='list-group'>
-                            {this.props.news.map((news, index) => {
+                            {this.props.popularNews.map((popularNews, index) => {
                                 return (
-                                    <NewsListItem key={index} news={news}/>
+                                    <PopularNewsListItem key={index} popularNews={popularNews}/>
                                 )
                             })}
                         </div>
                     </div>
                 </div>
             );
-        }
-        else {
-            window.location.reload()
+        } else {
+            window.location.reload();
         }
     }
 }

@@ -1,26 +1,26 @@
 import React from 'react';
 import NavBar from '../components/NavBar';
-import {NewsListItem} from '../components/NewsListItem';
-export default class NewsList extends React.Component {
+import {ExternalReviewsListItem} from '../components/ExternalReviewsListItem';
+export default class ExternalReviewsList extends React.Component {
     constructor(props) {
         super(props);
     }
 
     componentDidMount() {
-        this.props.findTopNews();
+        this.props.findExternalReviews();
     }
 
     render() {
-        if (this.props.news) {
+        if (this.props.externalReviews) {
             return (
                 <div>
                     <NavBar searchMovie={this.props.searchMovie}/>
                     <div className="container-fluid">
                         {/*<h2>Top News</h2>*/}
                         <div className='list-group'>
-                            {this.props.news.map((news, index) => {
+                            {this.props.externalReviews.map((externalReview, index) => {
                                 return (
-                                    <NewsListItem key={index} news={news}/>
+                                    <ExternalReviewsListItem key={index} externalReview={externalReview}/>
                                 )
                             })}
                         </div>

@@ -14,6 +14,3 @@ const stateToPropsMapper = (state) => ({
 const NewsPageContainer = connect(stateToPropsMapper, dispatcherToPropsMapper)(NewsList);
 
 export default NewsPageContainer;
-
-
-
