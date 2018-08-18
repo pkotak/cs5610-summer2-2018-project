@@ -21,7 +21,7 @@ export default class MovieList extends React.Component {
         if (this.props.movies) {
             return (
                 <div>
-                    <NavBar searchMovie={this.props.searchMovie}/>
+                    <NavBar/>
 
                     <UpcomingMovieCarousel upcomingMovies={this.props.upcomingMovies}/>
 

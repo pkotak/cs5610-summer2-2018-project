@@ -20,7 +20,7 @@ class DiscoverMovies extends React.Component {
         if(this.props.movies){
             return (
                 <div>
-                    <NavBar searchMovie={this.props.searchMovie}/>
+                    <NavBar/>
                     <div className='container-fluid'>
                         <div className='row mt-2'>
                             <div className='col-2'>
@@ -76,6 +76,7 @@ class DiscoverMovies extends React.Component {
                                            watchlist={this.props.watchlist}
                                            watchListMovie={this.props.watchListMovie}
                                            favouriteMovie={this.props.favoriteMovie}
+                                           likeMovie={this.props.likeMovie}
                                            page='discover'/>
                             )
                         })}
@@ -100,7 +101,8 @@ const dispatcherToPropsMapper = (dispatch) => ({
     toggleSortDropdown: () => actions.toggleSortDropdown(dispatch),
     toggleOrderDropdown: () => actions.toggleOrderDropdown(dispatch),
     setSortDropdownValue: (value) => actions.setSortDropdownValue(dispatch, value),
-    setOrderDropdownValue: (value) => actions.setOrderDropdownValue(dispatch, value)
+    setOrderDropdownValue: (value) => actions.setOrderDropdownValue(dispatch, value),
+    likeMovie: (movie)  => actions.movieLiked(dispatch,movie)
 })
 
 const stateToPropsMapper = (state) => ({

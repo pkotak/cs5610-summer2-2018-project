@@ -10,7 +10,7 @@ import purple from '@material-ui/core/colors/purple';
 
 import {Link} from 'react-router-dom';
 import {connect} from "react-redux";
-import * as actions from "../actions/login";
+import * as actions from "../actions/movie";
 
 const styles = {
     root: {
@@ -32,7 +32,7 @@ const styles = {
     },
 };
 
-function ButtonAppBar(props, {type, logout, loggedIn}) {
+function ButtonAppBar(props) {
     const {classes} = props;
     let searchText;
     return (
@@ -67,25 +67,6 @@ function ButtonAppBar(props, {type, logout, loggedIn}) {
                             External Reviews
                         </Button>
                     </Link>
-                    <div hidden={ loggedIn}>
-                        <Link style={{display: 'block', height: '100%'}}
-                              className="navbar-nav" to="/login">
-                            <Button className="text-white">Login</Button>
-                        </Link>
-                    </div>
-                    <div hidden={ loggedIn }>
-                        <Link style={{display: 'block', height: '100%'}}
-                              className="navbar-nav" to="/register">
-                            <Button className="text-white">Registration</Button>
-                        </Link>
-                    </div>
-                    <div hidden={type === undefined || !loggedIn}>
-                        <Link style={{display: 'block', height: '100%'}}
-                              className="navbar-nav" to="/profile">
-                            <Button className="text-white">Profile</Button>
-                        </Link>
-                    </div>
-
                     <FormControl className={classes.margin}>
                         <input
                             className='form-control'
@@ -95,6 +76,7 @@ function ButtonAppBar(props, {type, logout, loggedIn}) {
                         />
                     </FormControl>
                     <Button color="inherit" onClick={() => {
+                        console.log("Searched for:",searchText.value);
                         props.searchMovie(searchText.value);
                     }}>Search</Button>
                 </Toolbar>
@@ -109,13 +91,11 @@ ButtonAppBar.propTypes = {
 
 
 const dispatchToPropsMapper = dispatch => ({
-    logout: () => actions.logout(dispatch)
+    searchMovie: (searchText) => actions.searchMovie(dispatch, searchText)
 });
 const stateToPropsMapper = state => ({
-    type: state.userType,
-    loggedIn: state.loggedIn
 });
 
-const NavigationBar = connect(stateToPropsMapper, dispatchToPropsMapper)(ButtonAppBar);
+const NavBar = connect(stateToPropsMapper, dispatchToPropsMapper)(ButtonAppBar);
 
-export default withStyles(styles)(NavigationBar);
+export default withStyles(styles)(NavBar);
