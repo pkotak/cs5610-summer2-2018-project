@@ -1,4 +1,5 @@
 import React from 'react'
+import '../styles/login.css';
 
 export default class Registration extends React.Component {
     inputElem;

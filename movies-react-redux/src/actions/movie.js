@@ -1,18 +1,19 @@
 import * as constants from '../constants/index';
+import MovieServiceClient from "../services/movie.service.client";
 
 export const findNowPlayingMovies = dispatch => {
     fetch(constants.NOW_PLAYING_MOVIE_URL)
         .then(response => response.json())
-        .then (nowPlayingMovies => dispatch({
+        .then(nowPlayingMovies => dispatch({
             type: constants.FIND_NOW_PLAYING_MOVIES,
-            nowPlayingMovies : nowPlayingMovies
+            nowPlayingMovies: nowPlayingMovies
         }))
 }
 
 export const findUpcomingMovies = dispatch => {
     fetch(constants.UPCOMING_MOVIE_URL)
         .then(response => response.json())
-        .then (upcomingMovies => dispatch({
+        .then(upcomingMovies => dispatch({
             type: constants.FIND_UPCOMING_MOVIES,
             upcomingMovies: upcomingMovies
         }))
@@ -67,6 +68,7 @@ export const favoriteMovie = (dispatch, movieId) => {
 }
 
 export const watchListMovie = (dispatch, movieId) => {
+    console.log("Action: Adding to watchlist", movieId);
     fetch(constants.BASE_URL + 'movie/' + movieId + '/watchlist', {
         method: 'post',
         credentials: 'include'
@@ -102,4 +104,56 @@ export const setOrderDropdownValue = (dispatch, value) => {
         type: constants.SET_ORDER_DROPDOWN_VALUE,
         orderValue: value
     })
+}
+
+export function fetchFavouriteMovies(dispatch) {
+    let movieServiceClient = MovieServiceClient.instance;
+    movieServiceClient
+        .getFavoriteMovies()
+        .then(response => {
+            response.json()
+                .then((result) => {
+                    dispatch({
+                        type: constants.FETCH_FAVORITE_MOVIES,
+                        favoriteMovies: result
+                    })
+                });
+        });
+}
+
+export function dislikeMovie(dispatch, movie) {
+    let movieServiceClient = MovieServiceClient.instance;
+    movieServiceClient
+        .saveDislike(movie)
+        .then(response => {
+            alert('Disliked Movie ' + movie.title);
+            movieServiceClient
+                .getFavoriteMovies()
+                .then(response => {
+                    response.json()
+                        .then((result) => {
+                            dispatch({
+                                type: constants.FETCH_FAVORITE_MOVIES,
+                                favoriteMovies: result
+                            })
+                        });
+                });
+        })
+}
+
+export function movieLiked(dispatch, movie) {
+    let movieServiceClient = MovieServiceClient.instance;
+    movieServiceClient
+        .saveLike(movie)
+        .then(response => {
+            if (response.status === 501) {
+                alert("Already liked");
+            }
+            else if (response.status === 500) {
+                alert("Try Logging in");
+            }
+            else {
+                alert("Liked Movie " + movie.title);
+            }
+        })
 }

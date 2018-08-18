@@ -11,10 +11,11 @@ let movieInitialState = {
     sortValue: '',
     orderValue: '',
     favorite: {favorite: null},
-    watchlist: {watchlist: null}
+    watchlist: {watchlist: null},
+    favoriteMovies: []
 };
 
-const movieReducer = (state = movieInitialState , action) => {
+const movieReducer = (state = movieInitialState, action) => {
     switch (action.type) {
         //Movies
         case constants.FIND_NOW_PLAYING_MOVIES:
@@ -123,6 +124,12 @@ const movieReducer = (state = movieInitialState , action) => {
                 watchlist: action.watchlist,
                 favorite: state.favorite,
             }
+
+        case constants.FETCH_FAVORITE_MOVIES:
+            let newState = Object.assign({}, state);
+            newState.favoriteMovies= action.favoriteMovies;
+            return newState;
+
         default:
             return state;
     }

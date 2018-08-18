@@ -6,8 +6,7 @@ import MovieList from "./MovieList";
 const dispatcherToPropsMapper = (dispatch) => ({
     findNowPlayingMovies: () => actions.findNowPlayingMovies(dispatch),
     findUpcomingMovies: () => actions.findUpcomingMovies(dispatch),
-    findPopularMovies: () => actions.findPopularMovies(dispatch),
-    searchMovie: (searchText) => actions.searchMovie(dispatch, searchText)
+    findPopularMovies: () => actions.findPopularMovies(dispatch)
 });
 
 const stateToPropsMapper = (state) => ({
