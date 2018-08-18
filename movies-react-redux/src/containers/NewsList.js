@@ -29,7 +29,11 @@ export default class NewsList extends React.Component {
             );
         }
         else {
-            window.location.reload()
+            return (
+                <div>
+                    <h3>Loading</h3>
+                </div>
+            );
         }
     }
 }
