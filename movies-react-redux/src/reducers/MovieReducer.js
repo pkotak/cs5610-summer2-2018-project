@@ -10,8 +10,8 @@ let movieInitialState = {
     orderToggleOpen: false,
     sortValue: '',
     orderValue: '',
-    favorite: {favorite: null},
-    watchlist: {watchlist: null},
+    favorite: {favorite: true},
+    watchlist: {watchlist: true},
     favoriteMovies: []
 };
 

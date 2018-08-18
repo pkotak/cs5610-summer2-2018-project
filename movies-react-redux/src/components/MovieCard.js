@@ -10,15 +10,15 @@ export const MovieCard = ({movie, image, page, favouriteMovie, watchListMovie, w
                     <div className="card-body">
                         <h5 className="card-title">{movie.title}</h5>
                         <i className='fa fa-heart' onClick={() => {
-                            console.log("Movie marked as favourite:", movie.title);
-                            likeMovie(movie);
-                            favouriteMovie(movie.id);
-                            //alert(!favorite.favorite)
+                            favouriteMovie(movie.id, favorite);
+                            if(favorite.favorite !== undefined)
+                                alert(!favorite.favorite);
                         }}/>
                         <i className='fa fa-bookmark ml-2' onClick={() => {
                             console.log("MovieCard: Adding to watchlist", movie.id);
-                            watchListMovie(movie.id);
-
+                            watchListMovie(movie.id, watchlist);
+                            if(watchlist.watchlist !== undefined)
+                                alert(!watchlist.watchlist);
                             //alert(!watchlist.watchlist)
                         }}/>
                     </div>

@@ -55,10 +55,11 @@ export const discoverMovies = (dispatch, sortBy, sortOrder) => {
         }))
 }
 
-export const favoriteMovie = (dispatch, movieId) => {
+export const favoriteMovie = (dispatch, movieId, favorite) => {
     fetch(constants.BASE_URL + 'movie/' + movieId + '/favorite', {
         method: 'post',
-        credentials: 'include'
+        credentials: 'include',
+        body: JSON.stringify(favorite)
     })
         .then(response => response.json())
         .then(favorite => dispatch({
@@ -67,11 +68,12 @@ export const favoriteMovie = (dispatch, movieId) => {
         }))
 }
 
-export const watchListMovie = (dispatch, movieId) => {
+export const watchListMovie = (dispatch, movieId, watchlist) => {
     console.log("Action: Adding to watchlist", movieId);
     fetch(constants.BASE_URL + 'movie/' + movieId + '/watchlist', {
         method: 'post',
-        credentials: 'include'
+        credentials: 'include',
+        body: JSON.stringify(watchlist)
     })
         .then(response => response.json())
         .then(watchlist => dispatch({
