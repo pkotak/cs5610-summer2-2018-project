@@ -28,7 +28,11 @@ export default class PopularNewsList extends React.Component {
                 </div>
             );
         } else {
-            window.location.reload();
+            return (
+                <div>
+                    <h3>Loading</h3>
+                </div>
+            );
         }
     }
 }
