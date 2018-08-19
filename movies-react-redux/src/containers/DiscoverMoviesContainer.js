@@ -96,13 +96,12 @@ class DiscoverMovies extends React.Component {
 const dispatcherToPropsMapper = (dispatch) => ({
     discoverMovies: (sortBy, sortOrder) => actions.discoverMovies(dispatch, sortBy, sortOrder),
     searchMovie: (searchText) => actions.searchMovie(dispatch, searchText),
-    favoriteMovie: (movieId, favorite) => actions.favoriteMovie(dispatch, movieId, favorite),
-    watchListMovie: (movieId, watchlist) => actions.watchListMovie(dispatch, movieId, watchlist),
+    favoriteMovie: (movie, favorite) => actions.favoriteMovie(dispatch, movie, favorite),
+    watchListMovie: (movie, watchlist) => actions.watchListMovie(dispatch, movie, watchlist),
     toggleSortDropdown: () => actions.toggleSortDropdown(dispatch),
     toggleOrderDropdown: () => actions.toggleOrderDropdown(dispatch),
     setSortDropdownValue: (value) => actions.setSortDropdownValue(dispatch, value),
-    setOrderDropdownValue: (value) => actions.setOrderDropdownValue(dispatch, value),
-    likeMovie: (movie)  => actions.movieLiked(dispatch,movie)
+    setOrderDropdownValue: (value) => actions.setOrderDropdownValue(dispatch, value)
 })
 
 const stateToPropsMapper = (state) => ({

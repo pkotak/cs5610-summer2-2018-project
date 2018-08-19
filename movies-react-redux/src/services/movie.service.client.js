@@ -14,19 +14,9 @@ class MovieServiceClient {
         return this[_singleton]
     }
 
-    saveLike(item) {
-        return fetch(constants.BASE_URL + 'likeMovie',{
-            method: 'post',
-            credentials: "include",
-            body: JSON.stringify(item),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        });
-    }
 
     getFavoriteMovies() {
-        return fetch(constants.BASE_URL + 'likedMovies', {
+        return fetch(constants.BASE_URL + 'movie/favorites', {
             credentials: 'include'
         })
     }

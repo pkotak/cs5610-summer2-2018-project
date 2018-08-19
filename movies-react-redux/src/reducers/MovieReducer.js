@@ -127,7 +127,7 @@ const movieReducer = (state = movieInitialState, action) => {
 
         case constants.FETCH_FAVORITE_MOVIES:
             let newState = Object.assign({}, state);
-            newState.favoriteMovies= action.favoriteMovies;
+            newState.favoriteMovies= action.favoriteMovies.favorites;
             return newState;
 
         default:

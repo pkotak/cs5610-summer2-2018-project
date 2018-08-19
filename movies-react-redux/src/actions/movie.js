@@ -55,11 +55,14 @@ export const discoverMovies = (dispatch, sortBy, sortOrder) => {
         }))
 }
 
-export const favoriteMovie = (dispatch, movieId, favorite) => {
-    fetch(constants.BASE_URL + 'movie/' + movieId + '/favorite', {
+export const favoriteMovie = (dispatch, movie, favorite) => {
+    fetch(constants.BASE_URL + 'movie/' + movie.id + '/favorite', {
         method: 'post',
         credentials: 'include',
-        body: JSON.stringify(favorite)
+        body: JSON.stringify(movie),
+        headers: {
+            'content-type':'application/json'
+        }
     })
         .then(response => response.json())
         .then(favorite => dispatch({
@@ -68,12 +71,15 @@ export const favoriteMovie = (dispatch, movieId, favorite) => {
         }))
 }
 
-export const watchListMovie = (dispatch, movieId, watchlist) => {
-    console.log("Action: Adding to watchlist", movieId);
-    fetch(constants.BASE_URL + 'movie/' + movieId + '/watchlist', {
+export const watchListMovie = (dispatch, movie, watchlist) => {
+    console.log("Action: Adding to watchlist", movie.id);
+    fetch(constants.BASE_URL + 'movie/' + movie.id + '/watchlist', {
         method: 'post',
         credentials: 'include',
-        body: JSON.stringify(watchlist)
+        body: JSON.stringify(movie),
+        headers: {
+            'content-type': 'application/json'
+        }
     })
         .then(response => response.json())
         .then(watchlist => dispatch({
@@ -110,8 +116,7 @@ export const setOrderDropdownValue = (dispatch, value) => {
 
 export function fetchFavouriteMovies(dispatch) {
     let movieServiceClient = MovieServiceClient.instance;
-    movieServiceClient
-        .getFavoriteMovies()
+    movieServiceClient.getFavoriteMovies()
         .then(response => {
             response.json()
                 .then((result) => {
@@ -140,22 +145,5 @@ export function dislikeMovie(dispatch, movie) {
                             })
                         });
                 });
-        })
-}
-
-export function movieLiked(dispatch, movie) {
-    let movieServiceClient = MovieServiceClient.instance;
-    movieServiceClient
-        .saveLike(movie)
-        .then(response => {
-            if (response.status === 501) {
-                alert("Already liked");
-            }
-            else if (response.status === 500) {
-                alert("Try Logging in");
-            }
-            else {
-                alert("Liked Movie " + movie.title);
-            }
         })
 }
