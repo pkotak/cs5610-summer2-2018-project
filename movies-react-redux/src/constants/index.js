@@ -50,3 +50,7 @@ export const FETCH_FOLLOWING = 'FETCH_FOLLOWING';
 //Actor constants
 export const ALL_EVENTS_FOR_ACTOR = 'ALL_EVENTS_FOR_ACTOR';
 export const TOGGLE_EVENT = 'TOGGLE_EVENT';
+
+//Admin constants
+export const ADMIN_SAVE_USERS = 'ADMIN_SAVE_USERS';
+export const ALL_FAVORITE_MOVIES = 'ALL_FAVORITE_MOVIES';

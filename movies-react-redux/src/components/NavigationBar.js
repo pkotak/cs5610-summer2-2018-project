@@ -56,12 +56,6 @@ const NavigationBarComponent = ({type, logout, loggedIn}) => {
                 </div>
                 <div hidden={type !== 'Admin'}>
                     <Link style={{display: 'block', height: '100%'}}
-                          className="navbar-nav" to="/all-recommended-movies">
-                        <button type='btn' className="text-primary btn btn-outline-light">All Recommended Movies</button>
-                    </Link>
-                </div>
-                <div hidden={type !== 'Admin'}>
-                    <Link style={{display: 'block', height: '100%'}}
                           className="navbar-nav" to="/admin-page">
                         <button type='btn' className="text-primary btn btn-outline-light">Admin Page</button>
                     </Link>
