@@ -19,6 +19,8 @@ import ExploreUsersContainer from "./containers/ExploreUsersContainer";
 import FollowedFansContainer from "./containers/FollowedFansContainer";
 import ActorPageContainer from "./containers/ActorPageContainer";
 import ActorEventContainer from "./containers/ActorEventsContainer";
+import AdminPageContainer from "./containers/AdminPageContainer";
+import AllFavoriteMoviesContainer from "./containers/AllFavoriteMoviesContainer";
 
 const store = createStore(rootReducer);
 
@@ -49,6 +51,8 @@ export default class App extends Component {
                                 <Route exact path='/news/top' component={NewsPageContainer}/>
                                 <Route exact path='/news/popular' component={PopularNewsContainer}/>
                                 <Route exact path='/news/reviews' component={ExternalReviewsContainer}/>
+                                <Route path='/admin-page' component={AdminPageContainer}/>
+                                <Route path='/all-favourite-movies' component={AllFavoriteMoviesContainer}/>
                             </div>
                         </div>
                     </Router>
