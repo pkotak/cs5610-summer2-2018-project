@@ -21,9 +21,9 @@ export default class AdminPage extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className='container-fluid'>
                 <table className="table w-100">
-                    <thead>
+                    <thead className='thead-dark'>
                     <tr>
                         <th className="col" style={{width: '12%'}}>Username</th>
                         <th className="col" style={{width: '7%'}}>Password</th>
@@ -36,7 +36,6 @@ export default class AdminPage extends React.Component {
                         <th style={{width: '10%'}}></th>
                     </tr>
                     </thead>
-                    {this.renderUsers()}
                     <tr className="table-dark p-3">
                         <td>
                             <input placeholder='Username'
@@ -90,6 +89,7 @@ export default class AdminPage extends React.Component {
                             </button>
                         </td>
                     </tr>
+                    {this.renderUsers()}
                 </table>
             </div>
         )

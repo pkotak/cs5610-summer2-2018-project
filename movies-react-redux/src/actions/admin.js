@@ -56,9 +56,9 @@ export const findAllFavoriteMovies = (dispatch) => {
 };
 
 
-export const deleteFavoriteMovie = (dispatch, favoriteMovieId) => {
+export const deleteFavoriteMovie = (dispatch, favoriteMovie, user) => {
     AdminServiceClient.instance
-        .deleteFavoriteMovie(favoriteMovieId)
+        .deleteFavoriteMovie(favoriteMovie, user)
         .then(() => {
             alert('Deleted favorite movie!');
             AdminServiceClient.instance
