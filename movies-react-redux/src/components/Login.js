@@ -1,6 +1,7 @@
 import React from 'react'
 import '../styles/login.css'
 
+
 export default class Login extends React.Component {
     username = '';
     password = '';
@@ -19,8 +20,7 @@ export default class Login extends React.Component {
                         if (this.props.userType === 'Fan') {
                             this.props.history.push('/my-page');
                         } else if (this.props.userType === 'Actor') {
-                            //this.props.history.push('/my-page-actor');
-                            this.props.history.push('/profile');
+                            this.props.history.push('/my-page-actor');
                         } else if (this.props.userType === 'Critic') {
                             //this.props.history.push('/my-page-critic');
                             this.props.history.push('/profile');
@@ -34,22 +34,25 @@ export default class Login extends React.Component {
 
     render() {
         return (
-            <div className="container ">
-                <div className="card card-container">
-                    {/*<p id="profile-name" className="profile-name-card"></p>*/}
+            <div className="container center-block w-25">
+                <div className="cardRegistration card-container">
                     <form className="form-signin">
-                        <input id="inputEmail" className="form-control" placeholder="Username"
+                        <input id="inputEmail"
+                               className="form-control"
+                               placeholder="Username"
                                required autoFocus
                                onChange={(e) => this.username = e.target.value}/>
-                        <input type="password" id="inputPassword" className="form-control" placeholder="Password"
+                        <input type="password"
+                               id="inputPassword"
+                               className="form-control"
+                               placeholder="Password"
                                required
                                onChange={(e) => this.password = e.target.value}/>
                     </form>
-                    <button type='btn' className="btn btn-lg btn-primary btn-block btn-signin"
+                    <button type='btn' className="btn btn-info btn-block"
                             onClick={() => this.login(this.username, this.password)}>
                         Sign in
                     </button>
-
                 </div>
             </div>
         )

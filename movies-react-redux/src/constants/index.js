@@ -40,9 +40,13 @@ export const SAVE_USER_TYPE = 'SAVE_USER_TYPE';
 export const FETCH_PROFILE ='FETCH_PROFILE';
 export const LOGOUT = 'LOGOUT';
 
-//Explore Fan constants
+//Fan constants
 export const ALL_FANS_RESULTS = 'ALL_FANS_RESULTS';
 export const FAN_LIKED_RESULTS = 'FAN_LIKED_RESULTS';
 export const OPEN_FAN_DETAILS = 'OPEN_FAN_DETAILS';
 export const CLOSE_FAN_DETAILS = 'CLOSE_FAN_DETAILS';
 export const FETCH_FOLLOWING = 'FETCH_FOLLOWING';
+
+//Actor constants
+export const ALL_EVENTS_FOR_ACTOR = 'ALL_EVENTS_FOR_ACTOR';
+export const TOGGLE_EVENT = 'TOGGLE_EVENT';

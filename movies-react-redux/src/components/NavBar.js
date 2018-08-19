@@ -77,7 +77,10 @@ function ButtonAppBar(props) {
                     </FormControl>
                     <Button color="inherit" onClick={() => {
                         console.log("Searched for:",searchText.value);
-                        props.searchMovie(searchText.value);
+                        if(searchText.value){
+                            props.searchMovie(searchText.value);
+                        }
+
                     }}>Search</Button>
                 </Toolbar>
             </AppBar>
