@@ -15,7 +15,6 @@ const adminReducer = (state = adminInitialState, action) => {
             newState.users = action.users;
             return newState;
 
-
         case constants.ALL_FAVORITE_MOVIES:
             newState = Object.assign({}, state);
             newState.allFavoriteMovies = action.data;

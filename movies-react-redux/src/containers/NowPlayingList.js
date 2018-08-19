@@ -23,7 +23,7 @@ class NowPlayingList extends React.Component {
         return(
             <div className='list-group'>
                 <div className='list-group-item list-group-item-action bg-dark row'>
-                    <h4>Now Playing</h4>
+                    <h4 className="text-white">Now Playing</h4>
                 </div>
                 {this.renderNowPlayingMovies(movies)}
             </div>

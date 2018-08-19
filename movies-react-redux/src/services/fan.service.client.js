@@ -46,6 +46,17 @@ class FanServiceClient {
 
     }
 
+    getActorContent(id) {
+        return fetch(constants.BASE_URL + 'actor/events/' + id, {
+            method: 'get',
+            credentials: "include",
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+
+    }
+
     unfollowFan(item) {
         return fetch(constants.BASE_URL + 'fan/unfollow', {
             method: 'delete',
