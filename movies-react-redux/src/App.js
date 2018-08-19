@@ -17,6 +17,8 @@ import FanPageContainer from "./containers/FanPageContainer";
 import FavoriteMoviesContainer from "./containers/FavoriteMoviesContainer";
 import ExploreUsersContainer from "./containers/ExploreUsersContainer";
 import FollowedFansContainer from "./containers/FollowedFansContainer";
+import ActorPageContainer from "./containers/ActorPageContainer";
+import ActorEventContainer from "./containers/ActorEventsContainer";
 
 const store = createStore(rootReducer);
 
@@ -37,6 +39,8 @@ export default class App extends Component {
                                 <Route path='/register' component={RegistrationContainer}/>
                                 <Route path='/profile' component={ProfileContainer}/>
                                 <Route exact path='/my-page' component={FanPageContainer}/>
+                                <Route path='/my-page-actor' component={ActorPageContainer}/>
+                                <Route path='/my-page-actor/create-event' component={ActorEventContainer}/>
                                 <Route path='/my-page/favorite-movies' component={FavoriteMoviesContainer}/>
                                 <Route path='/explore' component={ExploreUsersContainer}/>
                                 <Route path='/my-page/fans-followed' component={FollowedFansContainer}/>

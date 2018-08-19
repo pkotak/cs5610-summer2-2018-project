@@ -11,5 +11,6 @@ const dispatchToPropsMapper = dispatch => ({
 const stateToPropsMapper = state => ({
     followedFans: state.fanReducer.followedFans
 });
+
 const FollowedFansContainer = connect(stateToPropsMapper, dispatchToPropsMapper)(FollowedFans);
 export default FollowedFansContainer;
