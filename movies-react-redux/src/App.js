@@ -21,6 +21,7 @@ import ActorPageContainer from "./containers/ActorPageContainer";
 import ActorEventContainer from "./containers/ActorEventsContainer";
 import AdminPageContainer from "./containers/AdminPageContainer";
 import AllFavoriteMoviesContainer from "./containers/AllFavoriteMoviesContainer";
+import WatchlistMoviesContainer from "./containers/WatchlistMovieContainer";
 
 const store = createStore(rootReducer);
 
@@ -44,6 +45,7 @@ export default class App extends Component {
                                 <Route path='/my-page-actor' component={ActorPageContainer}/>
                                 <Route path='/my-page-actor/create-event' component={ActorEventContainer}/>
                                 <Route path='/my-page/favorite-movies' component={FavoriteMoviesContainer}/>
+                                <Route path='/my-page/watchlist-movies' component={WatchlistMoviesContainer}/>
                                 <Route path='/explore' component={ExploreUsersContainer}/>
                                 <Route path='/my-page/fans-followed' component={FollowedFansContainer}/>
                                 <Route exact path='/discover' component={DiscoverMoviesContainer}/>

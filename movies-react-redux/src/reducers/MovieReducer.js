@@ -12,7 +12,8 @@ let movieInitialState = {
     orderValue: '',
     favorite: {favorite: true},
     watchlist: {watchlist: true},
-    favoriteMovies: []
+    favoriteMovies: [],
+    watchlistMovies: []
 };
 
 const movieReducer = (state = movieInitialState, action) => {
@@ -126,8 +127,13 @@ const movieReducer = (state = movieInitialState, action) => {
             }
 
         case constants.FETCH_FAVORITE_MOVIES:
-            let newState = Object.assign({}, state);
-            newState.favoriteMovies= action.favoriteMovies.favorites;
+            var newState = Object.assign({}, state);
+            newState.favoriteMovies = action.favoriteMovies.favorites;
+            return newState;
+
+        case constants.FETCH_WATCHLIST_MOVIES:
+            var newState = Object.assign({}, state);
+            newState.watchlistMovies = action.watchlistMovies.watchList;
             return newState;
 
         default:

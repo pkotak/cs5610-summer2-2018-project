@@ -29,7 +29,7 @@ const FanPage = ({username, description}) => {
                             <h5 className="card-title">Watchlist</h5>
                             <p className="card-text">Here are all the movies you've added to your watchlist!.</p>
                             <Link className="btn btn-outline-primary"
-                                  to="/watchlist">
+                                  to="/my-page/watchlist-movies">
                                 View
                             </Link>
                         </div>

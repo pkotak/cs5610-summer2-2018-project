@@ -128,6 +128,20 @@ export function fetchFavouriteMovies(dispatch) {
         });
 }
 
+export function fetchWatchlistMovies(dispatch) {
+    let movieServiceClient = MovieServiceClient.instance;
+    movieServiceClient.getWatchlistMovies()
+        .then(response => {
+            response.json()
+                .then((result) => {
+                    dispatch({
+                        type: constants.FETCH_WATCHLIST_MOVIES,
+                        watchlistMovies: result
+                    })
+                });
+        });
+}
+
 export function dislikeMovie(dispatch, movie) {
     let movieServiceClient = MovieServiceClient.instance;
     movieServiceClient
@@ -142,6 +156,26 @@ export function dislikeMovie(dispatch, movie) {
                             dispatch({
                                 type: constants.FETCH_FAVORITE_MOVIES,
                                 favoriteMovies: result
+                            })
+                        });
+                });
+        })
+}
+
+export function removeMovieFromBookmark(dispatch, movie) {
+    let movieServiceClient = MovieServiceClient.instance;
+    movieServiceClient
+        .removeMovieFromWatchlist(movie)
+        .then(response => {
+            alert('Disliked Movie ' + movie.title);
+            movieServiceClient
+                .getWatchlistMovies()
+                .then(response => {
+                    response.json()
+                        .then((result) => {
+                            dispatch({
+                                type: constants.FETCH_WATCHLIST_MOVIES,
+                                watchlistMovies: result
                             })
                         });
                 });

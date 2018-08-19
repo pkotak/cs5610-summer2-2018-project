@@ -21,8 +21,25 @@ class MovieServiceClient {
         })
     }
 
+    getWatchlistMovies() {
+        return fetch(constants.BASE_URL + 'movie/watchlist', {
+            credentials: 'include'
+        })
+    }
+
     saveDislike(movie) {
         return fetch(constants.BASE_URL + 'dislikeMovie',{
+            method: 'delete',
+            credentials: "include",
+            body: JSON.stringify(movie),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+    }
+
+    removeMovieFromWatchlist(movie) {
+        return fetch(constants.BASE_URL + `movie/${movie._id}/watchlist`,{
             method: 'delete',
             credentials: "include",
             body: JSON.stringify(movie),
