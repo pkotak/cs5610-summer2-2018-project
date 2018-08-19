@@ -5,6 +5,7 @@ let fanInitialState = {
     followedFans: [],
     fanResults: [],
     fanItems: [],
+    actorEvents: [],
     fanDetailsId: '',
 };
 
@@ -21,6 +22,11 @@ const fanReducer = (state = fanInitialState, action) => {
         case constants.FAN_LIKED_RESULTS:
             newState = Object.assign({}, state);
             newState.fanItems = action.items;
+            return newState;
+
+        case constants.ACTOR_EVENT_RESULTS:
+            newState = Object.assign({}, state);
+            newState.actorEvents = action.events;
             return newState;
 
         case constants.OPEN_FAN_DETAILS:

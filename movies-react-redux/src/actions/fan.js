@@ -40,6 +40,21 @@ export const getFanContent = (dispatch, id) => {
     })
 };
 
+export const getActorContent = (dispatch, id) => {
+    FanServiceClient.instance
+        .getActorContent(id)
+        .then(response => response.json()
+            .then(result => dispatch({
+                type: constants.ACTOR_EVENT_RESULTS,
+                events: result
+            }))
+        )
+    dispatch({
+        type: constants.OPEN_FAN_DETAILS,
+        id: id
+    })
+};
+
 export const closeContentPane = (dispatch) => {
     dispatch({
         type: constants.CLOSE_FAN_DETAILS,
