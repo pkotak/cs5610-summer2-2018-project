@@ -2,23 +2,31 @@ import React from 'react';
 
 class AllFavoriteMovies extends React.Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
         this.props.findAllFavoriteMovies();
     }
 
-    renderList(movies){
-        return movies.map(movie =>
-            <tr>
-                <td>{movie.Movie.title}</td>
-                <td>{movie.user.username}</td>
-                <td><button type='btn'
-                            className='btn btn-danger'
-                            onClick={() => this.props.deleteFavoriteMovie(movie._id)}>
-                    Delete
-                </button>
-                </td>
-            </tr>
+    renderMovies(movies, user) {
+        return movies.map(movie => (<tr>
+                    <td>{movie.title}</td>
+                    <td>{user.username}</td>
+                    <td>
+                        <button type='btn'
+                                className='btn btn-danger'
+                                onClick={() => this.props.deleteFavoriteMovie(movie, user)}>
+                            Delete
+                        </button>
+                    </td>
+                </tr>
+            )
+        );
+    }
+
+    renderList(users) {
+        return users.map(user => (
+            this.renderMovies(user.favorites, user)
+        )
         )
     }
 
