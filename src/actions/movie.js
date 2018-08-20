@@ -47,7 +47,7 @@ export const findMovieDetails = (dispatch, movieId) => {
 }
 
 export const discoverMovies = (dispatch, sortBy, sortOrder) => {
-    fetch(constants.DISCOVER_MOVIE_URL + '?sort_by=' + sortBy + '&order=' + sortOrder)
+    fetch(constants.DISCOVER_MOVIE_URL + '?sort_by=' + sortBy + '&order=' + sortOrder + '&include_adult=false&include_video=false')
         .then(response => response.json())
         .then(movies => dispatch({
             type: constants.DISCOVER_MOVIES,

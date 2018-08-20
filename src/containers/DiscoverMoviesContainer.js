@@ -22,7 +22,7 @@ class DiscoverMovies extends React.Component {
                 <div>
                     <NavBar/>
                     <div className='container-fluid'>
-                        <div className='row mt-2'>
+                        <div className='row mt-2 p-2'>
                             <div className='col-2'>
                                 <h5>Sort By</h5>
                             </div>
@@ -33,11 +33,9 @@ class DiscoverMovies extends React.Component {
                                     onClose={() => this.props.toggleSortDropdown()}
                                     onChange={(event) => {this.props.setSortDropdownValue(event.target.value);}}
                                     value={this.props.sortValue}>
-                                    <MenuItem value="">
-                                        <em>None</em>
-                                    </MenuItem>
                                     <MenuItem value='popularity'>Popularity</MenuItem>
                                     <MenuItem value='revenue'>Revenue</MenuItem>
+                                    <MenuItem value='vote_average'>Average Votes</MenuItem>
                                 </Select>
                             </div>
                             <div className='col-2'>
@@ -50,9 +48,6 @@ class DiscoverMovies extends React.Component {
                                     onClose={() => this.props.toggleOrderDropdown()}
                                     onChange={(event) => {this.props.setOrderDropdownValue(event.target.value);}}
                                     value={this.props.orderValue}>
-                                    <MenuItem value="">
-                                        <em>None</em>
-                                    </MenuItem>
                                     <MenuItem value='asc'>Ascending</MenuItem>
                                     <MenuItem value='desc'>Descending</MenuItem>
                                 </Select>
@@ -76,7 +71,8 @@ class DiscoverMovies extends React.Component {
                                            watchlist={this.props.watchlist}
                                            watchListMovie={this.props.watchListMovie}
                                            favouriteMovie={this.props.favoriteMovie}
-                                           likeMovie={this.props.likeMovie}
+                                           type={this.props.type}
+                                           loggedIn={this.props.loggedIn}
                                            page='discover'/>
                             )
                         })}
@@ -112,6 +108,8 @@ const stateToPropsMapper = (state) => ({
     orderValue: state.movieReducer.orderValue,
     favorite: state.movieReducer.favorite,
     watchlist: state.movieReducer.watchlist,
+    type: state.userReducer.userType,
+    loggedIn: state.userReducer.loggedIn
 })
 
 const DiscoverMoviesContainer = connect(stateToPropsMapper, dispatcherToPropsMapper)(DiscoverMovies);
