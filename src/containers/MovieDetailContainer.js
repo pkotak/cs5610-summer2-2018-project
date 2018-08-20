@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import * as actions from "../actions/movie";
 import * as constants from '../constants/index';
-import NavBar from '../components/NavBar';
+import NavBar from '../components/SearchNavBar';
 import '../styles/MovieDetailStyle.css';
 import {YoutubeWidget} from '../components/YoutubeWidget';
 import UpcomingMovieCarousel from "./UpcomingMovieCarousel";

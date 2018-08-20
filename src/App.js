@@ -1,11 +1,13 @@
 import React, {Component} from 'react'
+import {createStore} from "redux";
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 import {Provider} from 'react-redux';
 import rootReducer from './reducers/';
+import {loadState, saveState} from './localStorage'
+import throttle from 'lodash/throttle';
 import HomePageContainer from './containers/HomePageContainer'
 import NewsPageContainer from './containers/NewsPageContainer'
 import MovieDetailContainer from './containers/MovieDetailContainer';
-import {createStore} from "redux";
-import {BrowserRouter as Router, Route} from 'react-router-dom';
 import DiscoverMoviesContainer from "./containers/DiscoverMoviesContainer";
 import LoginContainer from "./containers/LoginContainer";
 import ProfileContainer from "./containers/ProfileContainer";
@@ -25,7 +27,17 @@ import WatchlistMoviesContainer from "./containers/WatchlistMovieContainer";
 import CriticPageContainer from "./containers/CriticPageContainer";
 import CriticPageReviewContainer from "./containers/CriticPageReviewContainer";
 
-const store = createStore(rootReducer);
+const persistedState = loadState();
+const store = createStore(
+    rootReducer,
+    persistedState
+);
+
+store.subscribe(throttle(() => {
+    saveState({
+        userReducer: store.getState().userReducer
+    });
+}, 1000));
 
 export default class App extends Component {
     render() {

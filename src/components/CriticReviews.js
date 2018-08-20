@@ -11,8 +11,6 @@ export default class CriticReviews extends React.Component {
     render() {
         let text;
         let title;
-        let review = {};
-        var critic = {};
         if (this.props.reviews) {
             return (
                 <div>

@@ -150,7 +150,7 @@ export default class AdminPage extends React.Component {
                                 {user.phone}
                             </td>
                             <td>
-                                <button type='btn' className="btn btn-dark" type='btn'
+                                <button type='btn' className="btn btn-dark"
                                         onClick={() => this.UpdateUser(user._id)}>
                                     Update
                                 </button>
