@@ -3,10 +3,10 @@ import {combineReducers} from 'redux';
 import userReducer from "./UserReducer";
 import movieReducer from "./MovieReducer";
 import newsReducer from "./NewsReducer";
-import fanReducer from "./FanReducer"
-import actorReducer from "./ActorReducer"
-import adminReducer from "./AdminReducer"
-
+import fanReducer from "./FanReducer";
+import actorReducer from "./ActorReducer";
+import adminReducer from "./AdminReducer";
+import criticReducer from "./CriticReducer";
 
 const rootReducer = combineReducers({
     userReducer,
@@ -14,7 +14,8 @@ const rootReducer = combineReducers({
     newsReducer,
     fanReducer,
     actorReducer,
-    adminReducer
+    adminReducer,
+    criticReducer
 });
 
 export default rootReducer;

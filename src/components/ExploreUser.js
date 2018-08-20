@@ -115,5 +115,4 @@ export default class ExploreUser extends React.Component {
             </div>
         )
     }
-
 };

@@ -11,11 +11,11 @@ export const MovieCard = ({movie, image, page, favouriteMovie, watchListMovie, w
                         <h5 className="card-title">{movie.title}</h5>
                         <i className='fa fa-heart' onClick={() => {
                             favouriteMovie(movie, favorite);
-                                alert(movie.title + 'added to favorites');
+                                alert(movie.title + ' added to favorites');
                         }}/>
                         <i className='fa fa-bookmark ml-2' onClick={() => {
                             watchListMovie(movie, watchlist);
-                            alert(movie.title + 'added to watchlist');
+                            alert(movie.title + ' added to watchlist');
                         }}/>
                     </div>
                     <div className="card-footer text-muted">

@@ -14,6 +14,7 @@ export const UPCOMING_MOVIE_URL = 'https://movies-nodejs-server.herokuapp.com/ap
 export const POPULAR_MOVIE_URL = 'https://movies-nodejs-server.herokuapp.com/api/movie/popular';
 export const DISCOVER_MOVIE_URL = 'https://movies-nodejs-server.herokuapp.com/api/movie/discover';
 export const MOVIE_SEARCH_URL = 'https://movies-nodejs-server.herokuapp.com/api/movie';
+
 //Movie constants
 export const FIND_NOW_PLAYING_MOVIES = 'FIND_NOW_PLAYING_MOVIES';
 export const FIND_UPCOMING_MOVIES = 'FIND_UPCOMING_MOVIES';
@@ -46,7 +47,6 @@ export const TOP_NEWS_URL = 'https://movies-nodejs-server.herokuapp.com/api/news
 export const POPULAR_NEWS_URL = 'https://movies-nodejs-server.herokuapp.com/api/news/popular';
 export const EXTERNAL_REVIEWS_URL = 'https://movies-nodejs-server.herokuapp.com/api/news/reviews';
 
-
 //Login constants
 export const TEXT_CHANGED = 'TEXT_CHANGED';
 export const SAVE_USERNAME_AND_USERTYPE = 'SAVE_USERNAME_AND_USERTYPE';
@@ -69,3 +69,9 @@ export const TOGGLE_EVENT = 'TOGGLE_EVENT';
 //Admin constants
 export const ADMIN_SAVE_USERS = 'ADMIN_SAVE_USERS';
 export const ALL_FAVORITE_MOVIES = 'ALL_FAVORITE_MOVIES';
+
+//Critic constants
+export const CREATE_REVIEW = 'CREATE_REVIEW';
+export const FIND_ALL_REVIEWS_FOR_MOVIE = 'FIND_ALL_REVIEWS_FOR_MOVIE';
+export const FIND_USER_BY_ID = 'FIND_USER_BY_ID';
+export const ALL_REVIEWS_FOR_USER = 'ALL_REVIEWS_FOR_USER';
