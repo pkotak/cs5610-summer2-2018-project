@@ -32,6 +32,7 @@ export default class Registration extends React.Component {
 
                         <input className="col-8"
                                id="password"
+                               type="password"
                                onChange={() => this.props.textChanged('password', this.inputElem1.value)}
                                ref={node => this.inputElem1 = node}/>
                     </form>
@@ -40,6 +41,7 @@ export default class Registration extends React.Component {
 
                         <input className="col-8"
                                id="verifyPassword"
+                               type="password"
                                onChange={() => this.props.textChanged('verifyPassword', this.inputElem2.value)}
                                ref={node => this.inputElem2 = node}/>
                     </form>

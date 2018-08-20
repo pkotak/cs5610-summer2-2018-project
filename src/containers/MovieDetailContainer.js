@@ -8,7 +8,6 @@ import {YoutubeWidget} from '../components/YoutubeWidget';
 import UpcomingMovieCarousel from "./UpcomingMovieCarousel";
 import {CriticReviewsContainer} from "./CriticReviewsContainer";
 
-
 class MovieDetail extends React.Component {
     constructor(props) {
         super(props);
@@ -149,7 +148,6 @@ const dispatcherToPropsMapper = (dispatch) => ({
 
 const stateToPropsMapper = (state) => ({
     movie: state.movieReducer.movie
-
 })
 
 const MovieDetailsContainer = connect(stateToPropsMapper, dispatcherToPropsMapper)(MovieDetail);

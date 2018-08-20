@@ -42,13 +42,15 @@ class AdminServiceClient {
     }
 
     findAllFavoriteMovies() {
-        return fetch(constants.BASE_URL + 'admin/all-favorite-movies')
+        return fetch(constants.BASE_URL + 'admin/user/favmovies', {
+            credentials: 'include'
+        })
     }
 
-    deleteFavoriteMovie(favoriteMovieId) {
-        return fetch(constants.BASE_URL + 'admin/favoriteMovie/' + favoriteMovieId, {
+    deleteFavoriteMovie(favoriteMovie, user) {
+        return fetch(constants.BASE_URL + `user/${user._id}/movie/${favoriteMovie._id}/dislike`,{
             method: 'delete'
-        })
+        });
     }
 }
 

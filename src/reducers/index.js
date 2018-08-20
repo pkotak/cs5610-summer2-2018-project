@@ -8,7 +8,6 @@ import actorReducer from "./ActorReducer";
 import adminReducer from "./AdminReducer";
 import criticReducer from "./CriticReducer";
 
-
 const rootReducer = combineReducers({
     userReducer,
     movieReducer,
