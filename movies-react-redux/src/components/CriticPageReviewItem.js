@@ -11,12 +11,13 @@ const CriticPageReviewItem = (
         textChanged
     }) => {
 
+    let date = new Date(userReview.createdDate).toLocaleDateString();
     return (
         <div className="card shadow p-3 mb-5 bg-white rounded ">
             <div className="card-body">
                 {id !== userReview._id && <h4>{userReview.title}</h4>}
                 {id !== userReview._id && <h5>Movie: {userReview.movieName}</h5>}
-                {id !== userReview._id && <p>Posted on: {userReview.createdDate}</p>}
+                {id !== userReview._id && <p>Posted on: {date}</p>}
                 Review:
                 {id !== userReview._id && <h6>{userReview.text}</h6>}
 

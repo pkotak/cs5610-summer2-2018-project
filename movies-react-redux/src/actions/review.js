@@ -13,7 +13,17 @@ export const createReview = (dispatch, review) => {
     CriticServiceClient.instance
         .createReview(review)
         .then(response => {
-            console.log(response.status)
+            CriticServiceClient.instance
+                .findAllReviewsForMovie(review.movieId)
+                .then(response1 => {
+                    response1.json()
+                        .then(res => {
+                            dispatch({
+                                type: constants.FIND_ALL_REVIEWS_FOR_MOVIE,
+                                reviews: res
+                            })
+                        })
+                })
         })
 };
 

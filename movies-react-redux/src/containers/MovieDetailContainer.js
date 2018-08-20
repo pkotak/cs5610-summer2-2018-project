@@ -6,6 +6,8 @@ import NavBar from '../components/NavBar';
 import '../styles/MovieDetailStyle.css';
 import {YoutubeWidget} from '../components/YoutubeWidget';
 import UpcomingMovieCarousel from "./UpcomingMovieCarousel";
+import {CriticReviewsContainer} from "./CriticReviewsContainer";
+
 
 class MovieDetail extends React.Component {
     constructor(props) {
@@ -119,7 +121,8 @@ class MovieDetail extends React.Component {
                         <YoutubeWidget src={youtubeUrl}/>
                     </div>
                     <div className='container-fluid'>
-                        <h3>Critic Review</h3>
+                        <h3>Critic Reviews</h3>
+                        <CriticReviewsContainer />
                     </div>
                     <div className='container-fluid'>
                         <h3>Recommendations</h3>
@@ -146,6 +149,7 @@ const dispatcherToPropsMapper = (dispatch) => ({
 
 const stateToPropsMapper = (state) => ({
     movie: state.movieReducer.movie
+
 })
 
 const MovieDetailsContainer = connect(stateToPropsMapper, dispatcherToPropsMapper)(MovieDetail);
