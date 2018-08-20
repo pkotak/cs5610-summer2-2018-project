@@ -55,3 +55,9 @@ export const TOGGLE_EVENT = 'TOGGLE_EVENT';
 //Admin constants
 export const ADMIN_SAVE_USERS = 'ADMIN_SAVE_USERS';
 export const ALL_FAVORITE_MOVIES = 'ALL_FAVORITE_MOVIES';
+
+//Critic constants
+export const CREATE_REVIEW = 'CREATE_REVIEW';
+export const FIND_ALL_REVIEWS_FOR_MOVIE = 'FIND_ALL_REVIEWS_FOR_MOVIE';
+export const FIND_USER_BY_ID = 'FIND_USER_BY_ID';
+export const ALL_REVIEWS_FOR_USER = 'ALL_REVIEWS_FOR_USER';

@@ -22,8 +22,8 @@ export default class Login extends React.Component {
                         } else if (this.props.userType === 'Actor') {
                             this.props.history.push('/my-page-actor');
                         } else if (this.props.userType === 'Critic') {
-                            //this.props.history.push('/my-page-critic');
-                            this.props.history.push('/profile');
+                            this.props.history.push('/my-page-critic');
+                            // this.props.history.push('/profile');
                         } else if (this.props.userType === 'Admin') {
                             this.props.history.push('/admin-page')
                         }
