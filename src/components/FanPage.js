@@ -5,9 +5,6 @@ const FanPage = ({username, description}) => {
     return (
         <div className="jumbotron">
             <h1 className="display-3">Profile of {username}: </h1>
-            {description !== undefined
-                ? <p className="lead">{description}</p>
-                : <p className="lead">All the good stuff you've been upto on The Movie Network.</p>}
             <hr className="my-2"/>
 
             <div className="row">

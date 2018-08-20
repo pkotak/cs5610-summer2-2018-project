@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import {connect} from "react-redux";
 import * as actions from "../actions/login";
 
-const NavigationBarComponent = ({type, logout, loggedIn}) => {
+const NavigationBarComponent = ({type, logout, loggedIn, username}) => {
     return (
         <nav className="navbar navbar-dark bg-white">
             <Link to="/">
@@ -33,7 +33,7 @@ const NavigationBarComponent = ({type, logout, loggedIn}) => {
                 <div hidden={type !== 'Fan' || !loggedIn}>
                     <Link style={{display: 'block', height: '100%'}}
                           className="navbar-nav" to="/my-page">
-                        <button type='btn' className="text-primary btn btn-outline-light">My Page</button>
+                        <button type='btn' className="text-primary btn btn-outline-light">{username}'s Page</button>
                     </Link>
                 </div>
                 <div hidden={type !== 'Fan' || !loggedIn}>
@@ -45,7 +45,7 @@ const NavigationBarComponent = ({type, logout, loggedIn}) => {
                 <div hidden={type !== 'Critic' || !loggedIn}>
                     <Link style={{display: 'block', height: '100%'}}
                           className="navbar-nav" to="/my-page-critic">
-                        <button type='btn' className="text-primary btn btn-outline-light">Critic Page</button>
+                        <button type='btn' className="text-primary btn btn-outline-light">{username}'s Critic Page</button>
                     </Link>
                 </div>
                 <div hidden={type !== 'Admin' || !loggedIn}>
@@ -63,7 +63,7 @@ const NavigationBarComponent = ({type, logout, loggedIn}) => {
                 <div hidden={type !== 'Actor' || !loggedIn}>
                     <Link style={{display: 'block', height: '100%'}}
                           className="navbar-nav" to="/my-page-actor">
-                        <button type='btn' className="text-primary btn btn-outline-light">Actor Page</button>
+                        <button type='btn' className="text-primary btn btn-outline-light">{username}'s Actor Page</button>
                     </Link>
                 </div>
                 <div hidden={type !== 'Fan' || !loggedIn}>
@@ -87,6 +87,7 @@ const dispatchToPropsMapper = dispatch => ({
 });
 const stateToPropsMapper = state => ({
     type: state.userReducer.userType,
+    username: state.userReducer.username,
     loggedIn: state.userReducer.loggedIn
 });
 

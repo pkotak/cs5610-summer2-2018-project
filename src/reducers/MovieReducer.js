@@ -17,6 +17,7 @@ let movieInitialState = {
 };
 
 const movieReducer = (state = movieInitialState, action) => {
+    let newState;
     switch (action.type) {
         //Movies
         case constants.FIND_NOW_PLAYING_MOVIES:
@@ -127,12 +128,12 @@ const movieReducer = (state = movieInitialState, action) => {
             }
 
         case constants.FETCH_FAVORITE_MOVIES:
-            var newState = Object.assign({}, state);
+            newState = Object.assign({}, state);
             newState.favoriteMovies = action.favoriteMovies.favorites;
             return newState;
 
         case constants.FETCH_WATCHLIST_MOVIES:
-            var newState = Object.assign({}, state);
+            newState = Object.assign({}, state);
             newState.watchlistMovies = action.watchlistMovies.watchList;
             return newState;
 

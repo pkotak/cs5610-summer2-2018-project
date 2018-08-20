@@ -1,5 +1,5 @@
 import React from 'react';
-import NavBar from '../components/NavBar';
+import NavBar from '../components/SearchNavBar';
 import {PopularNewsListItem} from '../components/PopularNewsListItem';
 export default class PopularNewsList extends React.Component {
     constructor(props) {

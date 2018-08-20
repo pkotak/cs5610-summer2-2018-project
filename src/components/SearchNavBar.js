@@ -40,7 +40,7 @@ function ButtonAppBar(props) {
             <AppBar position="static">
                 <Toolbar>
                     <Typography variant="title" color="inherit" className={classes.flex}>
-                        Movies
+                        Search Movies
                     </Typography>
                     <Link to={'/'}>
                         <Button className="text-white">
@@ -99,6 +99,6 @@ const dispatchToPropsMapper = dispatch => ({
 const stateToPropsMapper = state => ({
 });
 
-const NavBar = connect(stateToPropsMapper, dispatchToPropsMapper)(ButtonAppBar);
+const SearchNavBar = connect(stateToPropsMapper, dispatchToPropsMapper)(ButtonAppBar);
 
-export default withStyles(styles)(NavBar);
+export default withStyles(styles)(SearchNavBar);

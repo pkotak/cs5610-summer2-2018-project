@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import NavBar from '../components/NavBar';
+import NavBar from '../components/SearchNavBar';
 import * as constants from '../constants';
 import {MovieCard} from '../components/MovieCard';
 import * as actions from "../actions/movie";
