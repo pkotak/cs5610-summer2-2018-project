@@ -79,27 +79,35 @@ export default class ExploreUser extends React.Component {
 
     renderfans() {
         if (this.props.fans) {
-            return this.props.fans.map((fan, i) =>
-                (
-                    <div key={i}
-                         className="row border shadow p-3 mb-3 border-primary">
-                        <h3 className="col-2 mt-3 ">{fan.type}</h3>
-                        <h5 className="col-2 mt-3 ">{fan.username}</h5>
-                        <p className="col-3">{fan.description}</p>
-                        <div className="col-5 btn-group p-2">
-                            <button type='btn' className="btn btn-outline-dark m-1"
-                                    onClick={() => this.showContent(fan, fan._id)}>
-                                Explore Content
-                            </button>
-                            <button type='btn' className="btn btn-success m-1"
-                                    onClick={() => this.followFan(fan._id, fan.username)}>
-                                Follow
-                            </button>
-                        </div>
-                        {this.renderContent(fan)}
+            return (
+                <div>
+                    <div>
+                        {this.props.fans.map((fan, i) =>
+                            (
+                                <div key={i}
+                                     className="row border shadow p-3 mb-3 border-primary">
+                                    <h3 className="col-2 mt-3 ">{fan.type}</h3>
+                                    <h5 className="col-2 mt-3 ">{fan.username}</h5>
+                                    <p className="col-3">{fan.description}</p>
+                                    <div className="col-5 btn-group p-2">
+                                        <button hidden={fan.type === "Critic" || fan.type === "Admin" }
+                                            type='btn'
+                                            className="btn btn-outline-dark m-1"
+                                            onClick={() => this.showContent(fan, fan._id)}>
+                                            Explore Content
+                                        </button>
+                                        <button type='btn' className="btn btn-success m-1"
+                                                onClick={() => this.followFan(fan._id, fan.username)}>
+                                            Follow
+                                        </button>
+                                    </div>
+                                    {this.renderContent(fan)}
+                                </div>
+                            )
+                        )
+                        }
                     </div>
-                )
-            )
+                </div>)
         }
     }
 
@@ -107,7 +115,15 @@ export default class ExploreUser extends React.Component {
         return (
             <div className="container-fluid">
                 <div className="border shadow p-3 mb-5 border-white">
-                    <h1 className="display-4">All Fans In The Movie Network:</h1>
+
+                    <Link style={{display: 'block', height: '100%'}}
+                          to="/my-page">
+                        <button className="btn btn-outline-dark mb-3">
+                            <span><i className="fa fa-arrow-left mr-2"/></span>
+                            My Page
+                        </button>
+                    </Link>
+                    <h1 className="display-4">All Fans and Actors in The Movie Network:</h1>
                     <div className="p-3">
                         {this.renderfans()}
                     </div>

@@ -68,7 +68,7 @@ const NavigationBarComponent = ({type, logout, loggedIn, username}) => {
                 </div>
                 <div hidden={type !== 'Fan' || !loggedIn}>
                     <Link style={{display: 'block', height: '100%'}}
-                          className="navbar-nav" to="/watchlist">
+                          className="navbar-nav" to="/my-page/watchlist-movies">
                         <button type='btn' className="text-primary btn btn-outline-light">WatchList</button>
                     </Link>
                 </div>
