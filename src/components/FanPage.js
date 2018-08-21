@@ -61,33 +61,6 @@ const FanPage = ({username, description}) => {
                 </div>
             </div>
 
-            <div className="row">
-                <div className="col-sm-6">
-                    <div className="card shadow p-3 mb-5 bg-white rounded">
-                        <div className="card-body">
-                            <h5 className="card-title">Actors Following</h5>
-                            <p className="card-text">View all actors you've followed!</p>
-                            <Link className="btn btn-outline-primary"
-                                  to="/my-page/actors-followed">
-                                View
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-                <div className="col-sm-6">
-                    <div className="card shadow p-3 mb-5 bg-white rounded">
-                        <div className="card-body">
-                            <h5 className="card-title">Critics Following</h5>
-                            <p className="card-text">View all critics you've followed!</p>
-                            <Link className="btn btn-outline-primary"
-                                  to="/my-page/critics-followed">
-                                View
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         </div>
     )
 };
