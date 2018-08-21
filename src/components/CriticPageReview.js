@@ -14,8 +14,8 @@ export default class CriticPageReview extends React.Component {
     }
 
     renderList(userReviews) {
-        return userReviews.map(userReview =>
-            <div className="list-group-item">
+        return userReviews.map((userReview,i) =>
+            <div className="list-group-item" key={i}>
                 <CriticPageReviewItem
                     userReview={userReview}
                     deleteReview={this.props.deleteReview}
@@ -43,7 +43,6 @@ export default class CriticPageReview extends React.Component {
     }
 
     updateReview() {
-        console.log(this.props);
         this.props.updateReview({
 
             reviewTitle: this.state.reviewTitle,
@@ -59,7 +58,6 @@ export default class CriticPageReview extends React.Component {
     }
 
     render() {
-        console.log(this.props.userReviews)
         if (this.props.userReviews) {
             return (
                 <div className="container-fluid">
