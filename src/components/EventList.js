@@ -10,6 +10,7 @@ export default class EventList extends React.Component {
         this.editEvent = this.editEvent.bind(this);
         this.updateEvent = this.updateEvent.bind(this);
         this.textChanged = this.textChanged.bind(this);
+        this.cancelEdit = this.cancelEdit.bind(this);
 
         console.log(props);
     }
@@ -26,7 +27,8 @@ export default class EventList extends React.Component {
                     editEvent={this.editEvent}
                     id={this.state.id}
                     updateEvent={this.updateEvent}
-                    textChanged={this.textChanged}/>
+                    textChanged={this.textChanged}
+                    cancelEdit={this.cancelEdit}/>
             </div>
         )
     }
@@ -61,6 +63,11 @@ export default class EventList extends React.Component {
     editEvent(id) {
         this.setState({id: id});
     }
+
+    cancelEdit() {
+        this.setState({id: ''})
+    }
+
 
     render() {
         if (this.props.events) {

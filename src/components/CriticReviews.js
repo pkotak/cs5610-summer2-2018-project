@@ -5,7 +5,14 @@ export default class CriticReviews extends React.Component {
 
     constructor(props) {
         super(props);
+    }
+
+    componentWillMount(){
         this.props.findAllReviewsForMovie(this.props.movie.id);
+    }
+
+    componentWillReceiveProps(newProps){
+        newProps.findAllReviewsForMovie(newProps.movie.id);
     }
 
     render() {

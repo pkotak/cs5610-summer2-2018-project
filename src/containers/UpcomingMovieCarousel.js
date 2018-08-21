@@ -49,7 +49,7 @@ class UpcomingMovieCarousel extends React.Component {
 
     render() {
         let movies = this.props.upcomingMovies;
-        if(movies){
+        if (movies) {
             return (
                 <div>
                     <Carousel showArrows={true}
@@ -64,9 +64,12 @@ class UpcomingMovieCarousel extends React.Component {
                 </div>
             );
         }
-        else{
+        else {
             return (
-              <h3>Loading</h3>
+
+                <div className="ml-4">
+                    <h3>Loading</h3>
+                </div>
             );
         }
     }

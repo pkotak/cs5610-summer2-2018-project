@@ -9,7 +9,8 @@ const EventListItem = (
         editEvent,
         id,
         updateEvent,
-        textChanged
+        textChanged,
+        cancelEdit
     }) => {
 
     return (
@@ -38,6 +39,9 @@ const EventListItem = (
                 {id !== event._id && <button type='btn'
                                              className='btn btn-outline-danger mb-lg-2 w-100'
                                              onClick={() => deleteEvent(event)}>Delete</button>}
+
+                {id === event._id && <button type='btn' className='btn btn-outline-danger w-100'
+                                                  onClick={() => cancelEdit(event._id)}>Cancel</button>}
 
                 {id === event._id && <button type='btn' className='btn btn-outline-success w-100'
                                              onClick={() => updateEvent(event._id)}>Update</button>}
