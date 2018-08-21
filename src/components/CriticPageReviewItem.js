@@ -12,6 +12,8 @@ const CriticPageReviewItem = (
     }) => {
 
     let date = new Date(userReview.createdDate).toLocaleDateString();
+    let title;
+    let review;
     return (
         <div className="card shadow p-3 mb-5 bg-white rounded ">
             <div className="card-body">
@@ -23,11 +25,21 @@ const CriticPageReviewItem = (
 
 
                 {id === userReview._id && <input placeholder={userReview.title}
-                                            onChange={(e) => textChanged(e.target.value, 'reviewTitle')}
-                                            className="form-control mb-2"/>}
+                                                 ref={node => title = node}
+                                                 value={userReview.title}
+                                                 onChange={(e) => {
+                                                     userReview.title = title.value
+                                                     textChanged(title.value, 'reviewTitle')
+                                                 }}
+                                                 className="form-control mb-2"/>}
                 {id === userReview._id && <input placeholder={userReview.text}
-                                            className="form-control mb-2"
-                                            onChange={(e) => textChanged(e.target.value, 'reviewText')}/>}
+                                                 ref={node => review = node}
+                                                 value={userReview.text}
+                                                 className="form-control mb-2"
+                                                 onChange={(e) => {
+                                                     userReview.text = review.value
+                                                     textChanged(review.value, 'reviewText')
+                                                 }}/>}
                 {id !== userReview._id && <button type='btn'
                                              className='btn btn-outline-dark mb-lg-2 w-100'
                                              onClick={() => editReview(userReview._id)}>Edit</button>}
@@ -36,8 +48,10 @@ const CriticPageReviewItem = (
                                              className='btn btn-outline-danger mb-lg-2 w-100'
                                              onClick={() => deleteReview(userReview)}>Delete</button>}
 
-                {id === userReview._id && <button type='btn' className='btn btn-outline-success w-100'
-                                             onClick={() => updateReview(userReview._id)}>Update</button>}
+                {id === userReview._id && <button disabled={userReview.title === '' || userReview.text === ''}
+                                                  type='btn'
+                                                  className='btn btn-outline-success w-100'
+                                                  onClick={() => updateReview(userReview._id)}>Update</button>}
             </div>
         </div>
     )
