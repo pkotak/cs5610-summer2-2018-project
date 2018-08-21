@@ -8,7 +8,8 @@ const CriticPageReviewItem = (
         editReview,
         id,
         updateReview,
-        textChanged
+        textChanged,
+        cancelEdit
     }) => {
 
     let date = new Date(userReview.createdDate).toLocaleDateString();
@@ -28,6 +29,7 @@ const CriticPageReviewItem = (
                 {id === userReview._id && <input placeholder={userReview.text}
                                             className="form-control mb-2"
                                             onChange={(e) => textChanged(e.target.value, 'reviewText')}/>}
+
                 {id !== userReview._id && <button type='btn'
                                              className='btn btn-outline-dark mb-lg-2 w-100'
                                              onClick={() => editReview(userReview._id)}>Edit</button>}
@@ -35,6 +37,9 @@ const CriticPageReviewItem = (
                 {id !== userReview._id && <button type='btn'
                                              className='btn btn-outline-danger mb-lg-2 w-100'
                                              onClick={() => deleteReview(userReview)}>Delete</button>}
+
+                {id === userReview._id && <button type='btn' className='btn btn-outline-danger w-100'
+                                                  onClick={() => cancelEdit(userReview._id)}>Cancel</button>}
 
                 {id === userReview._id && <button type='btn' className='btn btn-outline-success w-100'
                                              onClick={() => updateReview(userReview._id)}>Update</button>}

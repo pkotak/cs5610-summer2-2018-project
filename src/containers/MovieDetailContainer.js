@@ -39,7 +39,7 @@ class MovieDetail extends React.Component {
     }
 
     render() {
-        if (this.props.movie && this.props.movie.videos && this.props.movie.similar) {
+        if (this.props.movie && this.props.movie.videos && this.props.movie.videos.results.length>0 && this.props.movie.similar) {
             let youtubeUrl = this.props.movie.videos.results[0].key;
             return (
                 <div>
@@ -121,7 +121,7 @@ class MovieDetail extends React.Component {
                     </div>
                     <div className='container-fluid'>
                         <h3>Critic Reviews</h3>
-                        <CriticReviewsContainer />
+                        <CriticReviewsContainer/>
                     </div>
                     <div className='container-fluid'>
                         <h3>Recommendations</h3>
@@ -133,8 +133,8 @@ class MovieDetail extends React.Component {
         }
 
         return (
-            <div>
-                <h3>Loading</h3>
+            <div className="ml-4">
+                <h3 >Loading</h3>
             </div>
         );
 

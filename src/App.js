@@ -35,7 +35,8 @@ const store = createStore(
 
 store.subscribe(throttle(() => {
     saveState({
-        userReducer: store.getState().userReducer
+        userReducer: store.getState().userReducer,
+        criticReducer: store.getState().criticReducer,
     });
 }, 1000));
 

@@ -10,10 +10,10 @@ export default class CriticPageReview extends React.Component {
         this.editReview = this.editReview.bind(this);
         this.updateReview = this.updateReview.bind(this);
         this.textChanged = this.textChanged.bind(this);
+        this.cancelEdit = this.cancelEdit.bind(this);
     }
 
     renderList(userReviews) {
-        console.log("renderList", userReviews);
         return userReviews.map(userReview =>
             <div className="list-group-item">
                 <CriticPageReviewItem
@@ -23,9 +23,14 @@ export default class CriticPageReview extends React.Component {
                     editReview={this.editReview}
                     id={this.state.id}
                     updateReview={this.updateReview}
-                    textChanged={this.textChanged}/>
+                    textChanged={this.textChanged}
+                    cancelEdit={this.cancelEdit}/>
             </div>
         )
+    }
+
+    cancelEdit() {
+        this.setState({id: ''})
     }
 
     textChanged(text, type) {

@@ -82,8 +82,8 @@ class DiscoverMovies extends React.Component {
         }
 
         return (
-            <div>
-                <h3>Loading</h3>
+            <div className="ml-4">
+                <h3 >Loading</h3>
             </div>
         );
     }
